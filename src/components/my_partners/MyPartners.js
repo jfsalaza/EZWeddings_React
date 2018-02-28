@@ -1,4 +1,6 @@
 import React from 'react';
+import User from './User';
+
 class MyPartners extends React.Component {
     render() {
       return (
@@ -8,6 +10,8 @@ class MyPartners extends React.Component {
               will list the clients connected with if logged in as a business. Previously businesses_list.html
               and clients_list.html.
           </p>
+          <User img="../../img/rosa_melano.jpeg">Rosa Melano</User>
+          <User img="../../img/elver_galarga.jpeg">Elver Galarga</User>
         </div>
       );
     }
