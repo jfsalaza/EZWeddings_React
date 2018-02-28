@@ -4,9 +4,6 @@ import '../../styles/client_list.css';
 import images from '../../img/images';
 
 const User = (props) => {
-    var img_src = props.img;
-    console.log(img_src);
-    console.log(typeof img_src);
     return(
         <Link to="partner">
             <div className="client">
