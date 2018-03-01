@@ -3,6 +3,7 @@ import {Link} from 'react-router';
 
 class HomePage extends React.Component {
   render() {
+    //This is a comment
     return (
       <div className="jumbotron">
         <h1>EZWeddings</h1>
