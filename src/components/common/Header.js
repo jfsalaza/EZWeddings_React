@@ -19,7 +19,7 @@ const Header = ({location}) => {
             <li className="nav-item" style={{float: "right"}}><IndexLink to="/" className="active">Logout</IndexLink></li>
           </ul>
           <div className="title">
-              <img id="title-img" src={require("../../img/title/title_bg4.jpeg")}/>
+              <img id="title-img" src="./title_bg4.jpeg"/>
               <div className="title-centered"><h1>My Clients</h1></div>
           </div>
         </div>
@@ -33,7 +33,7 @@ const Header = ({location}) => {
             <li className="nav-item" style={{float: "right"}}><IndexLink to="/" className="active">Logout</IndexLink></li>
           </ul>
           <div className="title">
-              <img id="title-img" src={require("../../img/title/title_bg5.jpeg")}/>
+              <img id="title-img" src="./title_bg5.jpeg"/>
               <div className="title-centered"><h1>Collaborators</h1></div>
           </div>
         </div>
