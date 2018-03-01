@@ -10,6 +10,7 @@ import MyAccount from './components/my_account/MyAccount';
 import MyPartners from './components/my_partners/MyPartners';
 import Partner from './components/partner/Partner';
 import Settings from './components/settings/Settings';
+import Register from './components/register/Register';
 
 
 export default (
@@ -20,5 +21,6 @@ export default (
     <Route path="my_partners" component={MyPartners} />
     <Route path="partner" component={Partner} />
     <Route path="settings" component={Settings} />
+    <Route path="register" component={Register} />
   </Route>
 );

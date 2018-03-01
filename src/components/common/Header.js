@@ -7,20 +7,38 @@ import '../../styles/nav_bar.css';
 
 const Header = ({location}) => {
   let loc = location.pathname;
+  let account_type = localStorage.getItem("account_type");
+  console.log(account_type);
   if(loc == "/my_partners") {
-    return (
-    <div>
-      <ul id="nav-bar">
-        <li className="nav-item"><Link to="/my_account">Home</Link></li>
-        <li className="nav-item"><Link to="/settings">Setting</Link></li>
-        <li className="nav-item" style={{float: "right"}}><IndexLink to="/" className="active">Logout</IndexLink></li>
-      </ul>
-      <div className="title">
-          <img id="title-img" src={require("../../img/title/title_bg4.jpeg")}/>
-          <div className="title-centered"><h1>My Clients</h1></div>
-      </div>
-    </div>
-    );
+    if(account_type == "business") {
+      return (
+        <div>
+          <ul id="nav-bar">
+            <li className="nav-item"><Link to="/my_account">Home</Link></li>
+            <li className="nav-item"><Link to="/settings">Setting</Link></li>
+            <li className="nav-item" style={{float: "right"}}><IndexLink to="/" className="active">Logout</IndexLink></li>
+          </ul>
+          <div className="title">
+              <img id="title-img" src={require("../../img/title/title_bg4.jpeg")}/>
+              <div className="title-centered"><h1>My Clients</h1></div>
+          </div>
+        </div>
+        );
+    } else if (account_type == "planner") {
+      return (
+        <div>
+          <ul id="nav-bar">
+            <li className="nav-item"><Link to="/my_account">Home</Link></li>
+            <li className="nav-item"><Link to="/settings">Setting</Link></li>
+            <li className="nav-item" style={{float: "right"}}><IndexLink to="/" className="active">Logout</IndexLink></li>
+          </ul>
+          <div className="title">
+              <img id="title-img" src={require("../../img/title/title_bg5.jpeg")}/>
+              <div className="title-centered"><h1>Collaborators</h1></div>
+          </div>
+        </div>
+        );
+    }
   } else if (loc == "/") {
     return (
       <div>

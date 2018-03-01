@@ -8,7 +8,7 @@ const User = (props) => {
         <Link to="partner">
             <div className="client">
                 <h3>{props.children}</h3>
-                <img src={images.planner[props.img]} className="client-picture"/>
+                <img src={images[props.img]} className="client-picture"/>
             </div>
         </Link>
     );
