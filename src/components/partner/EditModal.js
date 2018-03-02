@@ -12,7 +12,7 @@ const EditModal = (props) => {
             </div>
             <div className="modal-body">
                 <input id="edit-modal-text" className="modal-input" placeholder="To do" type="text" ref={props.modalTextRef}/>
-                <input className="edit-button" type="button" value="Delete"/>
+                <input className="edit-button" type="button" value="Delete" onClick={props.deleteItem}/>
                 <input className="edit-button" type="button" value="Update" onClick={props.addItem}/>
             </div>
             </div>

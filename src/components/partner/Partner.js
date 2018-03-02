@@ -55,13 +55,28 @@ class Partner extends React.Component {
   }
 
   editToDoItem = (e) => {
-    console.log("edited");
-    console.log(e.currentTarget);
-    //let items = this.state.items;
-    //for(let i = 0; i < items.length; i++) {
-    //
-    //}
+    if(this.editModalText.value == "") return;
+    let itemsUpdate = this.state.items;
+    for(let i = 0; i<itemsUpdate.length; i++) {
+      if(itemsUpdate[i].id == this.underEdit) {
+        itemsUpdate[i].text = this.editModalText.value;
+        break;
+      }
+    }
+    this.setState((prevState) => { return {items: itemsUpdate}; });
+    this.editModal.style.display = "none";
+  }
 
+  deleteToDoItem = () => {
+    let itemsUpdate = this.state.items;
+    for(let i = 0; i<itemsUpdate.length; i++) {
+      if(itemsUpdate[i].id == this.underEdit) {
+        itemsUpdate.splice(i, 1);
+        break;
+      }
+    }
+    this.setState((prevState) => { return {items: itemsUpdate}; });
+    this.editModal.style.display = "none";
   }
 
   render() {
@@ -86,6 +101,7 @@ class Partner extends React.Component {
                    modalTextRef={el => this.editModalText = el} 
                    closeModal={this.closeModal}
                    addItem={this.editToDoItem}
+                   deleteItem={this.deleteToDoItem}
         />
       </div>
     );
