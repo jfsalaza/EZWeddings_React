@@ -12,16 +12,16 @@ class Chat extends React.Component {
     textInput = null;
 
     sendMessage = (e) => {
-            if(e.keyCode == 13) {
-                let text = this.textInput.value; 
-                this.setState((prevState) => 
-                {
-                        var next = prevState.messages.slice();
-                        next.push({sender:"You: ", msg:text});
-                        this.textInput.value = "";
-                        return {messages: next}
-                });
-            }
+        if(e.keyCode == 13) {
+            let text = this.textInput.value; 
+            this.setState((prevState) => 
+            {
+                    var next = prevState.messages.slice();
+                    next.push({sender:"You: ", msg:text});
+                    this.textInput.value = "";
+                    return {messages: next}
+            });
+        }
     }
 
     render(){
