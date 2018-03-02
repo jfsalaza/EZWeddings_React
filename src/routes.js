@@ -21,7 +21,7 @@ export default (
     <Route path="login" component={Login} />
     <Route path="my_account" component={MyAccount} />
     <Route path="my_partners" component={MyPartners} />
-    <Route path="partner" component={Partner} />
+    <Route path="/my_partners/:uid" component={Partner} />
     <Route path="settings" component={Settings} />
     <Route path="register" component={Register} />
     <Route path="home" component={TitleHome} />

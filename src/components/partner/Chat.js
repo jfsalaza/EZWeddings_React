@@ -9,16 +9,19 @@ class Chat extends React.Component {
         ]
     };
 
+    textInput = null;
+
     sendMessage = (e) => {
-            if(e.keyCode == 13) {
-                console.log("HELLO!");
-                this.setState((prevState) => 
-                {
-                        var next = prevState.messages.slice();
-                        next.push({sender:"Me: ", msg:"New"})                        
-                        return {messages: next}
-                });
-            }
+        if(e.keyCode == 13) {
+            let text = this.textInput.value; 
+            this.setState((prevState) => 
+            {
+                    var next = prevState.messages.slice();
+                    next.push({sender:"You: ", msg:text});
+                    this.textInput.value = "";
+                    return {messages: next}
+            });
+        }
     }
 
     render(){
@@ -32,7 +35,7 @@ class Chat extends React.Component {
                         })
                     }
                 </div>
-                <input id="msg-input" type="text" name="msg" placeholder="Type message..." onKeyUp={this.sendMessage}/>
+                <input id="msg-input" type="text" name="msg" placeholder="Type message..." onKeyUp={this.sendMessage} ref={input => this.textInput = input}/>
             </div>
         );
     }    
