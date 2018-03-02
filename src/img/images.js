@@ -5,7 +5,9 @@ const images = {
         john_smith: require('./planner/john_smith.jpeg'),
         banda_ms: require('./business/banda_ms.jpg'),
         tacos_el_gordo: require('./business/TACOS.png'),
-        fairbanks: require('./business/wedding_venue_1.jpg')
+        fairbanks: require('./business/wedding_venue_1.jpg'),
+        rose: require('./planner/rose.jpeg'),
+        diagonal: require('./planner/diagonal.jpg'),
 };
 
 export default images;

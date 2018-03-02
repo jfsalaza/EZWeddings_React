@@ -6,7 +6,7 @@ class Login extends React.Component {
       return (
         <div>
           <h1>Login</h1>
-          <p>This is the login page. Previously login.html</p>
+          <p>This is the login page. Previously login.html hello </p>
         </div>
       );
     }

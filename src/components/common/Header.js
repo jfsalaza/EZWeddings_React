@@ -43,7 +43,9 @@ const Header = ({location}) => {
         </ul>
       </div>
     );
-} else {
+} else if (loc == "/register"){
+  return( <div></div>);
+}else {
     return (
       <div>
         <ul id="nav-bar">
