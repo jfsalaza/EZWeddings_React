@@ -72,12 +72,41 @@ const users = {
     profile_pic: "wedding_venue_1.jpg",
     account_type: "business",
     partners: ["rosa_melano", "elver_galarga", "john_smith", "jane_doe"],
-    ad: ""
+    ad: {},
+    business_type: ["venues"]
+  },
+  banda_ms: {
+    uid: "banda_ms",
+    contact_info: {
+      name: "Banda MS",
+      phone_number: "777-777-7777",
+      email: "banda_ms@email.com",
+      address: "Mazatlan, Sinaloa, Mexico"
+    },
+    profile_pic: "banda_ms.jpg",
+    account_type: "business",
+    partners: ["rosa_melano", "elver_galarga", "john_smith", "jane_doe"],
+    ad: {},
+    business_type: ["entertainment"]
+  },
+  tacos_el_gordo: {
+    uid: "tacos_el_gordo",
+    contact_info: {
+      name: "Tacos El Gordo",
+      phone_number: "619-691-8848",
+      email: "tacos_el_gordo@email.com",
+      address: "689 H St, Chula Vista, CA 91910"
+    },
+    profile_pic: "TACOS.png",
+    account_type: "business",
+    partners: ["rosa_melano", "elver_galarga", "john_smith", "jane_doe"],
+    ad: {},
+    business_type: ["foodNdrinks"]
   }
 };
 
 localStorage.setItem("users", JSON.stringify(users));
-localStorage.setItem("current_user", "fairbanks");
+localStorage.setItem("current_user", "elver_galarga");
 
 render(
   <Provider store={store}>
