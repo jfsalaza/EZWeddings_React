@@ -11,6 +11,8 @@ import MyPartners from './components/my_partners/MyPartners';
 import Partner from './components/partner/Partner';
 import Settings from './components/settings/Settings';
 import Register from './components/register/Register';
+import TitleHome from './components/home/TitleHome';
+import AccountRecovery from './components/account_recovery/AccountRecovery';
 
 
 export default (
@@ -22,5 +24,7 @@ export default (
     <Route path="partner" component={Partner} />
     <Route path="settings" component={Settings} />
     <Route path="register" component={Register} />
+    <Route path="home" component={TitleHome} />
+    <Route path="account_recovery" component={AccountRecovery} />
   </Route>
 );
