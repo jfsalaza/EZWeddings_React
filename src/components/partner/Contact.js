@@ -7,7 +7,7 @@ const Contact = (props) => {
         <div className="page-section">
             <h3>Contact Information</h3>
             <img id="business-picture" src={props.img} className="client-picture"/><br/>
-            <p id="contact-info"></p>
+            <p id="contact-info">{props.info}</p>
         </div>
     );
 };

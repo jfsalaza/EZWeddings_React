@@ -3,11 +3,15 @@ import {Link} from 'react-router';
 import '../../styles/business.css';
 
 const Message = (props) => {
-    return(
-        <div>
-           {props.sender} {props.message} 
-        </div>
-    );
+    if(props.message == "") {
+        return null;
+    } else {
+        return (
+            <div className="chat-msg">
+                {props.sender} {props.message}
+            </div>
+        );
+    }
 };
 
 export default Message;

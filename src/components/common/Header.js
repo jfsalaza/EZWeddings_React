@@ -9,7 +9,6 @@ import '../../styles/nav_bar.css';
 const Header = ({location}) => {
   let loc = location.pathname;
   let account_type = localStorage.getItem("account_type");
-  console.log(account_type);
   
   if(loc == "/my_partners") {
     if(account_type == "business") {
