@@ -11,10 +11,8 @@ const AddModal = (props) => {
                 <h2>Add To Do Item</h2>
             </div>
             <div className="modal-body">
-                <form>
                 <input id="add-modal-text" className="modal-input" placeholder="To do" type="text" ref={props.modalTextRef}/>
                 <input className="modal-submit" type="button" value="Add Item" onClick={props.addItem}/>
-                </form>
             </div>
             </div>
         </div>

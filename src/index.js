@@ -55,7 +55,7 @@ const users = {
     contact_info: {
       name: "Jane Doe",
       phone_number: "888-888-8888",
-      email: "rosa_melano@email.com"
+      email: "jane_doe@email.com"
     },
     profile_pic: "jane_doe.jpeg",
     account_type: "planner",
