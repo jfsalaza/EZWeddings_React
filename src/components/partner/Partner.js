@@ -86,10 +86,11 @@ class Partner extends React.Component {
     const profile_pic = "../"+partner.profile_pic;
     const phone_number = partner.contact_info.phone_number;
     const email = partner.contact_info.email;
+    const address = partner.contact_info.address;
     return (
       <div style={{textAlign: "center"}}>
         <h1>{name}</h1>
-        <Contact img={profile_pic} phone_number={phone_number} email={email}/>
+        <Contact img={profile_pic} phone_number={phone_number} email={email} address={address}/>
         <Todo addModal={this.showAddModal} editModal={this.showEditModal}>{this.state.items}</Todo>
         <Chat/>
         <AddModal modalRef={el => this.modal = el} 

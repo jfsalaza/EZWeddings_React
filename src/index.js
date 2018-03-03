@@ -106,7 +106,7 @@ const users = {
 };
 
 localStorage.setItem("users", JSON.stringify(users));
-localStorage.setItem("current_user", "elver_galarga");
+localStorage.setItem("current_user", "tacos_el_gordo");
 
 render(
   <Provider store={store}>

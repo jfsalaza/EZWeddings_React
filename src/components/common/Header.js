@@ -8,9 +8,13 @@ import '../../styles/nav_bar.css';
 
 const Header = ({location}) => {
   let loc = location.pathname;
-  let account_type = localStorage.getItem("account_type");
+  let users = JSON.parse(localStorage.getItem("users"));
+  let current_user = localStorage.getItem("current_user");
+  let user = users[current_user];
+  let account_type = user.account_type;
   
   if(loc == "/my_partners") {
+    console.log("IN PARTNERS");
     if(account_type == "business") {
       return (
         <div>
@@ -42,7 +46,20 @@ const Header = ({location}) => {
         </ul>
       </div>
     );
-} else {
+} else if (loc == "/my_account") {
+  console.log("IN HERE")
+  return (
+    <div>
+      <ul id="nav-bar">
+        <li className="nav-item"><Link to="/my_account">Home</Link></li>
+        <li className="nav-item"><Link to="/settings">Setting</Link></li>
+        <li className="nav-item" style={{float: "right"}}><IndexLink to="/" className="active">Logout</IndexLink></li>
+      </ul>
+      <Title img="./title_bg5.jpeg">My Account</Title>
+    </div>
+  );
+} 
+else {
     return (
       <div>
         <ul id="nav-bar">
@@ -54,5 +71,7 @@ const Header = ({location}) => {
     );
   }
 };
+
+
 
 export default Header;

@@ -10,4 +10,4 @@ class Requests extends React.Component {
     }
   }
   
-  export default Request;
+  export default Requests;
