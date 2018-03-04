@@ -6,8 +6,7 @@ import '../../styles/request.css';
 const ReqUsers = (props) => {
     const user = "/requests/"+props.uid;
     return(
-        <Link to={user}>
-            <div className="client">
+        <div className="client">
                 <h3>{props.children}</h3>
                 <img src={props.img} className="client-picture"/>
                 <p id = "request-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel imperdiet lorem. 
@@ -21,11 +20,9 @@ const ReqUsers = (props) => {
                 <br />
                 <div className = "moveItem" >Number: {props.num}</div>
                 <div className = "moveItem1" >Email: {props.email}</div>
-                <button className = "accept-button" >Accept</button>
-                <button className = "deny-button">Deny</button>
+                <button id={props.uid} className = "accept-button" onClick={props.remove} >Accept</button>
+                <button id={props.uid} className = "deny-button" onClick={props.remove}>Deny</button>
             </div>
-            <br />
-        </Link>
     )
 }
 
