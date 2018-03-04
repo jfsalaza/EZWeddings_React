@@ -2,7 +2,7 @@ import React from 'react';
 import User from './User';
 import Title from '../common/Title';
 import '../../styles/client_list.css';
-import {users, current_user} from '../../index';
+import {users, current_user} from '../common/Header';
 
 class MyPartners extends React.Component {
     render() {

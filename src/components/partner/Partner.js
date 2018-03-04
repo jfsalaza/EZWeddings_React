@@ -5,7 +5,7 @@ import Chat from './Chat';
 import AddModal from './AddModal';
 import EditModal from './EditModal';
 import Title from '../common/Title';
-import {users, current_user} from '../../index';
+import {users, current_user} from '../common/Header';
 
 class Partner extends React.Component {
   state = {
