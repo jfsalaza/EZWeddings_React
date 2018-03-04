@@ -6,9 +6,9 @@ const User = (props) => {
     const user = "/my_partners/"+props.uid;
     return(
         <Link to={user}>
-            <div className="client">
+            <div className="client2">
                 <h3>{props.children}</h3>
-                <img src={props.img} className="client-picture"/>
+                <img src={props.img} className="client-picture2"/>
             </div>
         </Link>
     );
