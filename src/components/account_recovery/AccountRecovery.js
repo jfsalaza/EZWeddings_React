@@ -2,6 +2,7 @@ import React from 'react';
 import '../../styles/register.css';
 import {Link} from 'react-router';
 import { Redirect } from 'react-router';
+import Recovered from './Recovered'
 
 
 class AccountRecovery extends React.Component {
@@ -10,7 +11,8 @@ class AccountRecovery extends React.Component {
     super(props);
     this.state = {
       email: '',
-      confirmEmail: ''
+      confirmEmail: '',
+      redirect: 'false'
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -31,15 +33,17 @@ class AccountRecovery extends React.Component {
   }
 
   handleSubmit(event) {
-    if(this.refs.email.value === this.refs.confirmEmail.value ){
-      alert('A new password was sent to your email');
-      return <Redirect to={'/'} />
+    if(this.refs.email.value === this.refs.confirmEmail.value){
+      alert("Email has been sent with instructions on how to recover your account");
+      this.setState({redirect: 'true'});
+
     }else{
-      alert('Emails don\'t match' );
+      alert("Emails don't match, please try again");
     }
     event.preventDefault();
   }  
 render() {
+      if(this.state.redirect === 'false'){
       return (
         <div id="pagedivR">
           <div id="contentdivR">
@@ -62,6 +66,18 @@ render() {
         </div>
       </div>
       );
+    }else{
+      return(
+      <div>
+      <label>
+        <h3>Account Recovery</h3>
+      </label>
+      <Link to='/login'>
+      <input type="submit" value="To Log In"/>
+      </Link>
+      </div>)
+      this.setState({redirect: 'false'});
+    }
     }
 }
   

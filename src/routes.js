@@ -14,6 +14,7 @@ import Register from './components/register/Register';
 import BusinessSearch from './components/business_search/BusinessSearch';
 import Requests from './components/requests/Requests';
 import UpdateAd from './components/update_ad/UpdateAd';
+import AccountRecovery from './components/account_recovery/AccountRecovery';
 
 export default (
   <Route path="/" component={App}>
@@ -22,10 +23,11 @@ export default (
     <Route path="my_account" component={MyAccount} />
     <Route path="my_partners" component={MyPartners} />
     <Route path="/my_partners/:uid" component={Partner} />
-    <Route path="/business_search/:btype" component={BusinessSearch} />
+    <Route path="business_search" component={BusinessSearch} />
     <Route path="settings" component={Settings} />
     <Route path="register" component={Register} />
     <Route path="requests" component={Requests} />
     <Route path="update_ad" component={UpdateAd} />
+    <Route path="account_recovery" component={AccountRecovery} />
   </Route>
 );
