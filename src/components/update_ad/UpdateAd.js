@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
-import '../../styles/updatead.css';
+import '../../styles/updateAd.css';
 import {users, current_user} from '../../index';
 
 class UpdateAd extends React.Component {
@@ -77,7 +77,7 @@ class UpdateAd extends React.Component {
                   <br></br>
                 
                   <br></br>Photo:<br></br>
-                  <img src="../../img/diagonal.jpg" width="255" height="200"></img>
+                  <img src={require("../../img/settings/diagonal.jpg")} width="255" height="200"></img>
                   <br></br>
                   <input id ="photoidUL" type="file" name="photo" accept="image/gif, image/jpeg, image/png"></input> 
                   <br></br>
