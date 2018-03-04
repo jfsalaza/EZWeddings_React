@@ -16,7 +16,7 @@ const store = configureStore();
 //store.dispatch(loadCourses());
 //store.dispatch(loadAuthors());
 
-var users = {
+export const users = {
   rosa_melano: {
     uid: "rosa_melano",
     contact_info: {
@@ -114,6 +114,10 @@ localStorage.setItem("names",JSON.stringify(names));
 localStorage.setItem("busNames",JSON.stringify(busNames));
 
 
+export const current_user = "tacos_el_gordo";
+
+localStorage.setItem("users", JSON.stringify(users));
+localStorage.setItem("current_user", "tacos_el_gordo");
 
 render(
   <Provider store={store} >

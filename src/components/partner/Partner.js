@@ -4,6 +4,8 @@ import Todo from './Todo';
 import Chat from './Chat';
 import AddModal from './AddModal';
 import EditModal from './EditModal';
+import Title from '../common/Title';
+import {users, current_user} from '../../index';
 
 class Partner extends React.Component {
   state = {
@@ -80,16 +82,22 @@ class Partner extends React.Component {
   }
 
   render() {
-    const users = JSON.parse(localStorage.getItem("users"));
     const partner = users[this.props.params.uid];
     const name = partner.contact_info.name;
     const profile_pic = "../"+partner.profile_pic;
     const phone_number = partner.contact_info.phone_number;
     const email = partner.contact_info.email;
+    const address = partner.contact_info.address;
+    const account_type = users[current_user].account_type;
+    let bg_pic = "../title_bg.jpeg";
+
+    if(account_type == "business") {
+      bg_pic = "../title_bg4.jpeg";
+    }
     return (
       <div style={{textAlign: "center"}}>
-        <h1>{name}</h1>
-        <Contact img={profile_pic} phone_number={phone_number} email={email}/>
+        <Title img={bg_pic}>{name}</Title>
+        <Contact img={profile_pic} phone_number={phone_number} email={email} address={address}/>
         <Todo addModal={this.showAddModal} editModal={this.showEditModal}>{this.state.items}</Todo>
         <Chat/>
         <AddModal modalRef={el => this.modal = el} 
