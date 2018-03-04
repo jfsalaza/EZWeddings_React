@@ -1,10 +1,18 @@
 import React from 'react';
+import {Link} from 'react-router';
+
 class BusinessAd extends React.Component {
     render() {
       return (
-        <div>
-          <h1>BusinessAd</h1>
-          <p>This is the ad of a business clicked in the business search page. This page was previously business_listing.html</p>
+        <div id="listingIdBA">
+          <h1 id="nameIdBA">BusinessAd</h1>
+          <div id="listingInfoIdBA">
+            <img src="./img/persian.jpg" alt="./img/diagonal.jpg"></img>
+            <p>Phone Number: 858-356-2135</p><br></br>
+            <p>E-mail: pcat@gmail.com</p>
+          </div>
+          <div id="description text"></div>
+          <button></button>
         </div>
       );
     }

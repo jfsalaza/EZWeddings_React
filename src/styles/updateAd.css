@@ -1,0 +1,54 @@
+*{
+    padding:0;
+    margin:0;        
+    font-family: 'Libre Franklin', sans-serif;             
+}
+
+body{
+    background-color: #F1F1F1;
+}
+
+#pageblockidUL{
+    background-color: white;
+
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;  
+
+    font-weight: 600;
+    font-size: 18px;                 
+}
+
+#scontentidUL{
+    margin-left: 25px;
+}
+
+/*input[type=text],input[type=email],
+input[type=password],input[type=tel]{*/
+    #titleidUL,#cnameidUL,#phoneidUL,
+    #descriptionidUL,#emailidUL,
+    #addressidUL{
+    font-size: 18px;                
+    margin-bottom: 0px;   
+    margin-top: 6px;   
+    padding: 5px 5px 1px 4px;   
+    width: 555px;                
+}
+
+#submitidUL{                
+    padding: 8px 12px 8px 12px;    
+    text-align: center;        
+    font-size: 16px;    
+    font-weight: 600;                
+    background: #008CBA;
+    border: 2px;
+    border-radius: 4px; 
+    text-decoration: none;
+    display: inline-block;
+    color: white;                
+    margin-bottom: 10px;
+}       
+
+#submitidUL:hover{
+    background: #1C7ABA;
+} 

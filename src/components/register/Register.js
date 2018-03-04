@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../styles/register.css';
+import {Link} from 'react-router';
 
 
 class Register extends React.Component {
@@ -95,11 +96,6 @@ class Register extends React.Component {
                   <input type="text" ref="lastName" value={this.state.lastName} onChange={this.handleChange}/>
                 </div>
               </label>
-              <label>
-                <img src="./img/planner/diagonal.jpg" width="255" height="200" alt="tacos.jpeg" />
-                <br />
-                <input id="photoidR" type="file" name="photo" accept="image/gif, image/jpeg, image/png" onChange="displayImg()" />
-              </label>
               <br />
               <label>
                 Email:
@@ -110,23 +106,22 @@ class Register extends React.Component {
                 Password:
                 <input id="passwordidR" ref="password" type="password" value={this.state.password} onChange={this.handleChange} />
               </label>
+              <label>
+                Confirm Password:
+                <input id="passwordidR" ref="password" type="password" value={this.state.password} onChange={this.handleChange} />
+              </label>
               <br />
               <label>
                 Phone Number:
                 <input type="tel" ref="number"value={this.state.phoneNumber} onChange={this.handleChange} />
               </label>
               <br />
-              <label>
-                Client
-                <input id="cradioidR" type="checkbox" name="clientvendor" checked={this.state.client} />
-              </label>
-              <br />
-              <label>
-                Vendor            
-                <input id="vradioidR" type="checkbox" name="clientvendor" checked={this.state.vendor} />
-              </label>
-              <br />
+              <Link to='/'>
               <input type="submit" value="Join Now" />
+              </Link>
+              <Link to = 'account_recovery'>
+              <input type="submit" value = "Forgot Password"/>
+              </Link>
         </form>
         </div>
       </div>

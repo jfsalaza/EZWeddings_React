@@ -8,10 +8,16 @@ describe('Our first test', () => {
 
     it("links to my_partners when first button is clicked", () => {
         const wrapper = shallow(<MyAccount/>);
-        expect(shallow(<MyAccount/>).length).toEqual(1);
+        expect(wrapper.find("Link").at(0).prop("to")).toEqual("my_partners");
     });
-    it("links to requests when second button is clicked");
-    it("links to update my ad when third button is clicked");
+    it("links to requests when second button is clicked", () => {
+        const wrapper = shallow(<MyAccount/>);
+        expect(wrapper.find("Link").at(1).prop("to")).toEqual("requests");
+    });
+    it("links to update my ad when third button is clicked", () => {
+        const wrapper = shallow(<MyAccount/>);
+        expect(wrapper.find("Link").at(2).prop("to")).toEqual("update_ad");
+    });
 
 
 });
