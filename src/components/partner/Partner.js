@@ -4,6 +4,7 @@ import Todo from './Todo';
 import Chat from './Chat';
 import AddModal from './AddModal';
 import EditModal from './EditModal';
+import Title from '../common/Title';
 
 class Partner extends React.Component {
   state = {
@@ -87,9 +88,16 @@ class Partner extends React.Component {
     const phone_number = partner.contact_info.phone_number;
     const email = partner.contact_info.email;
     const address = partner.contact_info.address;
+    const current_user = localStorage.getItem("current_user");
+    const account_type = users[current_user].account_type;
+    let bg_pic = "../title_bg.jpeg";
+
+    if(account_type == "business") {
+      bg_pic = "../title_bg4.jpeg";
+    }
     return (
       <div style={{textAlign: "center"}}>
-        <h1>{name}</h1>
+        <Title img={bg_pic}>{name}</Title>
         <Contact img={profile_pic} phone_number={phone_number} email={email} address={address}/>
         <Todo addModal={this.showAddModal} editModal={this.showEditModal}>{this.state.items}</Todo>
         <Chat/>

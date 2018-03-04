@@ -4,6 +4,7 @@ import Todo from '../partner/Todo';
 import AddModal from '../partner/AddModal';
 import EditModal from '../partner/EditModal';
 import BusinessTypes from './BusinessTypes';
+import Title from '../common/Title';
 
 class MyAccount extends React.Component {
   state = {
@@ -86,7 +87,7 @@ class MyAccount extends React.Component {
     if(user.account_type == "business") {
       return (
         <div style={{textAlign: "center"}}>
-          <h1>My Account</h1>
+        <Title img="../title_bg5.jpeg">My Account</Title>
           <Link to="my_partners">
               <div className="card">
                       <h2 className="link">My Clients</h2>
@@ -107,7 +108,7 @@ class MyAccount extends React.Component {
     }
     return (
       <div style={{textAlign: "center"}}>
-        <h1>My Wedding Planner</h1>
+        <Title img="../index1.jpeg">My Wedding Planner</Title>
         <Todo addModal={this.showAddModal} editModal={this.showEditModal}>{this.state.items}</Todo>
         <BusinessTypes/>
         <AddModal modalRef={el => this.modal = el} 
