@@ -70,7 +70,7 @@ class Settings extends React.Component {
                    </div>
                    
                    <br></br>Photo: <br></br>
-                   <img src="../../img/login/diagonal.jpg" width="255" height="200"></img>
+                   <img src={require("../../img/settings/diagonal.jpg")} width="255" height="200"></img>
                    <br></br>
                    <input id ="photoidBS" type="file" name="photo" accept="image/gif, image/jpeg, image/png"></input> 
                    <br></br>
