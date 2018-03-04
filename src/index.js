@@ -16,7 +16,7 @@ const store = configureStore();
 //store.dispatch(loadCourses());
 //store.dispatch(loadAuthors());
 
-const users = {
+export const users = {
   rosa_melano: {
     uid: "rosa_melano",
     contact_info: {
@@ -104,6 +104,8 @@ const users = {
     business_type: ["foodNdrinks"]
   }
 };
+
+export const current_user = "tacos_el_gordo";
 
 localStorage.setItem("users", JSON.stringify(users));
 localStorage.setItem("current_user", "tacos_el_gordo");

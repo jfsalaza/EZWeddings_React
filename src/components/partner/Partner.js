@@ -5,6 +5,7 @@ import Chat from './Chat';
 import AddModal from './AddModal';
 import EditModal from './EditModal';
 import Title from '../common/Title';
+import {users, current_user} from '../../index';
 
 class Partner extends React.Component {
   state = {
@@ -81,14 +82,12 @@ class Partner extends React.Component {
   }
 
   render() {
-    const users = JSON.parse(localStorage.getItem("users"));
     const partner = users[this.props.params.uid];
     const name = partner.contact_info.name;
     const profile_pic = "../"+partner.profile_pic;
     const phone_number = partner.contact_info.phone_number;
     const email = partner.contact_info.email;
     const address = partner.contact_info.address;
-    const current_user = localStorage.getItem("current_user");
     const account_type = users[current_user].account_type;
     let bg_pic = "../title_bg.jpeg";
 

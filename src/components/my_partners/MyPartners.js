@@ -2,11 +2,10 @@ import React from 'react';
 import User from './User';
 import Title from '../common/Title';
 import '../../styles/client_list.css';
+import {users, current_user} from '../../index';
 
 class MyPartners extends React.Component {
     render() {
-      const users = JSON.parse(localStorage.getItem("users"));
-      const current_user = localStorage.getItem("current_user");
       const partners = users[current_user].partners;
       const account_type = users[current_user].account_type;
       let bg_pic = "../title_bg5.jpeg";

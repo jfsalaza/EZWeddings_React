@@ -5,6 +5,7 @@ import AddModal from '../partner/AddModal';
 import EditModal from '../partner/EditModal';
 import BusinessTypes from './BusinessTypes';
 import Title from '../common/Title';
+import {users, current_user} from '../../index';
 
 class MyAccount extends React.Component {
   state = {
@@ -81,8 +82,8 @@ class MyAccount extends React.Component {
   }
 
   render() {
-    const users = JSON.parse(localStorage.getItem("users"));
-    const current_user = localStorage.getItem("current_user");
+    //const users = JSON.parse(localStorage.getItem("users"));
+    //const current_user = localStorage.getItem("current_user");
     const user = users[current_user];
     if(user.account_type == "business") {
       return (
@@ -127,4 +128,4 @@ class MyAccount extends React.Component {
   }
 }
   
-  export default MyAccount;
+export default MyAccount;
