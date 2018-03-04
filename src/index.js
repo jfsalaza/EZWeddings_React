@@ -16,7 +16,7 @@ const store = configureStore();
 //store.dispatch(loadCourses());
 //store.dispatch(loadAuthors());
 
-const users = {
+var users = {
   rosa_melano: {
     uid: "rosa_melano",
     contact_info: {
@@ -105,11 +105,18 @@ const users = {
   }
 };
 
+var names = ["elver_galarga", "rosa_melano","john_smith","jane_doe"];
+var busNames = ["tacos_el_gordo", "banda_ms","fairbanks"];
+
 localStorage.setItem("users", JSON.stringify(users));
 localStorage.setItem("current_user", "elver_galarga");
+localStorage.setItem("names",JSON.stringify(names));
+localStorage.setItem("busNames",JSON.stringify(busNames));
+
+
 
 render(
-  <Provider store={store}>
+  <Provider store={store} >
     <Router history={browserHistory} routes={routes} />
   </Provider>,
   document.getElementById('app')

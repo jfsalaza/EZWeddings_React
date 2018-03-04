@@ -13,6 +13,8 @@ import Settings from './components/settings/Settings';
 import Register from './components/register/Register';
 import TitleHome from './components/home/TitleHome';
 import AccountRecovery from './components/account_recovery/AccountRecovery';
+import Requests from './components/requests/Requests';
+import BusinessSearch from './components/business_search/BusinessSearch';
 
 
 export default (
@@ -26,5 +28,7 @@ export default (
     <Route path="register" component={Register} />
     <Route path="home" component={TitleHome} />
     <Route path="account_recovery" component={AccountRecovery} />
+    <Route path="requests" component={Requests} />
+    <Route path="business_search" component={BusinessSearch} />
   </Route>
 );

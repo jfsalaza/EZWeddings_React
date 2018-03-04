@@ -1,0 +1,32 @@
+.title {
+    position: relative;
+    text-align: center;
+    color: antiquewhite;
+}
+.title-centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+#title-img {
+    width:100%; 
+    height:150px; 
+    object-fit: cover;
+} 
+
+#searchBar{
+    margin-left: 23%;
+    width: 200px;
+}
+
+.client-picture{
+    max-width: 300px;
+    max-height: 50%;
+    float: left;
+}
+
+.searchBar{
+    align-content: center;
+}

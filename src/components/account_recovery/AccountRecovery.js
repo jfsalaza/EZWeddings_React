@@ -1,5 +1,7 @@
 import React from 'react';
 import '../../styles/register.css';
+import {Link} from 'react-router';
+import { Redirect } from 'react-router';
 
 
 class AccountRecovery extends React.Component {
@@ -29,7 +31,12 @@ class AccountRecovery extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.firstName);
+    if(this.refs.email.value === this.refs.confirmEmail.value ){
+      alert('A new password was sent to your email');
+      return <Redirect to={'/'} />
+    }else{
+      alert('Emails don\'t match' );
+    }
     event.preventDefault();
   }  
 render() {
@@ -42,15 +49,15 @@ render() {
           <form onSubmit={this.handleSubmit}>
           <label>
             Email:
-            <input id="emailidR" type="email" value={this.state.email} onChange={this.handleChange} />
+            <input id="emailidR" ref = "email"type="email" value={this.state.email} onChange={this.handleChange} />
           </label>
           <br />
           <label>
             Confirm Email:
-            <input id="emailidR" type="email" value={this.state.confirmEmail} onChange={this.handleChange} />
+            <input id="emailidR" ref = "confirmEmail" type="email" value={this.state.confirmEmail} onChange={this.handleChange} />
           </label>
           <br />
-          <input type="submit" value="Join Now" />
+          <input type="submit" value="Submit"/>
         </form>
         </div>
       </div>
