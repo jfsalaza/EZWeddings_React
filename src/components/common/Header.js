@@ -17,12 +17,26 @@ if (loc == "/") {
     return (
       <div>
         <ul id="nav-bar">
-          <li className="nav-item" style={{float: "right"}}><IndexLink to="/" className="active">Login</IndexLink></li>
+          <li className="nav-item" style={{float: "right"}}><IndexLink to="/login" className="active">Login</IndexLink></li>
+          <li className="nav-item" style={{float: "right"}}><IndexLink to="/register" className="active">Register</IndexLink></li>
         </ul>
       </div>
-    ); 
-} 
-else {
+    );
+} else if (loc == "/register"){
+  return( 
+    <div>
+      <ul id="nav-bar">
+          <li className="nav-item"><Link to="/">Home</Link></li>
+        </ul>
+    </div>);
+}else if (loc == "/account_recovery"){
+  return( 
+    <div>
+      <ul id="nav-bar">
+          <li className="nav-item"><Link to="/">Home</Link></li>
+        </ul>
+    </div>);
+}else {
     return (
       <div>
         <ul id="nav-bar">

@@ -100,18 +100,37 @@ export const users = {
     profile_pic: "TACOS.png",
     account_type: "business",
     partners: ["rosa_melano", "elver_galarga", "john_smith", "jane_doe"],
-    ad: {},
+    ad: {
+      title: "Taco Bonita",
+      name: "Tacos El Gordo",
+      img: "TACOS.png",
+      description: "The best Tacos in a 3ft radius",
+      email: "tacos_el_gordo@email.com",
+      phone_number: "619-691-8848",
+      address: "689 H St, Chula Vista, CA 91910",
+      categories: ["foodNdrinks"]
+      },
     business_type: ["foodNdrinks"]
-  }
+    }   
 };
+
+var names = ["elver_galarga", "rosa_melano","john_smith","jane_doe"];
+var busNames = ["tacos_el_gordo", "banda_ms","fairbanks"];
+
+localStorage.setItem("users", JSON.stringify(users));
+localStorage.setItem("current_user", "elver_galarga");
+localStorage.setItem("names",JSON.stringify(names));
+localStorage.setItem("busNames",JSON.stringify(busNames));
+
 
 export const current_user = "tacos_el_gordo";
 
 localStorage.setItem("users", JSON.stringify(users));
 localStorage.setItem("current_user", "tacos_el_gordo");
 
+
 render(
-  <Provider store={store}>
+  <Provider store={store} >
     <Router history={browserHistory} routes={routes} />
   </Provider>,
   document.getElementById('app')
