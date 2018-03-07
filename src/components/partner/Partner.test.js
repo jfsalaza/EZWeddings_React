@@ -8,37 +8,100 @@ describe('Todo list test', () => {
     const props = {
         params: {uid: "elver_galarga"}
     };
-    /*
-    it("send message when enter button is pressed", () => {
-        const wrapper2 = mount(<Chat/>);
-
-        const chat_input = wrapper2.find("input");
-        chat_input.node.value = "Hello";
-        chat_input.simulate('keyUp', {keyCode: 13});
-        expect(wrapper2.state().messages[0].msg).toEqual("Hello");
-        
-        const message = wrapper2.find("div").at(2).text();
-        expect(message).toEqual("You:  Hello");
-    });
-
-    it("Load all messages in state when new one is posted", () => {
-        const wrapper = mount(<Chat/>);
-        wrapper.state().messages.push({sender:"You: ", msg:"Post me"});
-
-        const chat_input = wrapper.find("input");
-        chat_input.node.value = "Hello";
-        chat_input.simulate('keyUp', {keyCode: 13});
-
-        const message1 = wrapper.find("div").at(2).text();
-        expect(message1).toEqual("You:  Post me");
-        const message2 = wrapper.find("div").at(3).text();
-        expect(message2).toEqual("You:  Hello");
-    });
-    */
-   it("add shows the modal when Add is clicked", () => {
+   it("add item when you click add->add item", () => {
        const wrapper = mount(<Partner {...props}/>);
        const add_button = wrapper.find("button").at(0);
        const add_modal = wrapper.find("#add-item-modal");
        add_button.simulate("click");
+
+       const add_modal_text = wrapper.find("#add-modal-text");
+       add_modal_text.node.value = "item1";
+
+       const add_modal_button = wrapper.find("input").at(2);
+       add_modal_button.simulate("click");
+
+       add_button.simulate("click");
+       add_modal_text.node.value = "item2";
+       add_modal_button.simulate("click");
+
+       add_button.simulate("click");
+       add_modal_text.node.value = "item3";
+       add_modal_button.simulate("click");
+
+       const todo_list = wrapper.find("#todo-list").children();
+       expect(todo_list.length).toEqual(3);
    });
+
+   it("edit item when click on item->update text->click update", () => {
+    const wrapper = mount(<Partner {...props}/>);
+    const add_button = wrapper.find("button").at(0);
+    const add_modal = wrapper.find("#add-item-modal");
+    add_button.simulate("click");
+
+    const add_modal_text = wrapper.find("#add-modal-text");
+    add_modal_text.node.value = "item1";
+
+    const add_modal_button = wrapper.find("input").at(2);
+    add_modal_button.simulate("click");
+
+    add_button.simulate("click");
+    add_modal_text.node.value = "item2";
+    add_modal_button.simulate("click");
+
+    add_button.simulate("click");
+    add_modal_text.node.value = "item3";
+    add_modal_button.simulate("click");
+
+    const todo_list = wrapper.find("#todo-list").children();
+    expect(todo_list.length).toEqual(3);
+
+    const item_to_edit = todo_list.at(1);
+    item_to_edit.simulate("click");
+
+    const edit_modal_text = wrapper.find("#edit-modal-text");
+    edit_modal_text.node.value = "item2_edited"
+    
+    const update_button = wrapper.find("input").at(5);
+    update_button.simulate("click");
+
+    const todo_list_update = wrapper.find("#todo-list").children();
+    expect(todo_list_update.length).toEqual(3);
+
+    const updated_item = todo_list_update.at(1);
+    expect(updated_item.text()).toEqual("item2_edited");
+   });
+
+   it("delete item on click item, and click delete", () => {
+    const wrapper = mount(<Partner {...props}/>);
+    const add_button = wrapper.find("button").at(0);
+    const add_modal = wrapper.find("#add-item-modal");
+    add_button.simulate("click");
+
+    const add_modal_text = wrapper.find("#add-modal-text");
+    add_modal_text.node.value = "item1";
+
+    const add_modal_button = wrapper.find("input").at(2);
+    add_modal_button.simulate("click");
+
+    add_button.simulate("click");
+    add_modal_text.node.value = "item2";
+    add_modal_button.simulate("click");
+
+    add_button.simulate("click");
+    add_modal_text.node.value = "item3";
+    add_modal_button.simulate("click");
+
+    const todo_list = wrapper.find("#todo-list").children();
+    expect(todo_list.length).toEqual(3);
+
+    const item_to_delete = todo_list.at(1);
+    item_to_delete.simulate("click");
+    const delete_button = wrapper.find("input").at(4);
+    delete_button.simulate("click");
+
+    const updated_list = wrapper.find("#todo-list").children();
+    expect(updated_list.length).toEqual(2);
+    expect(updated_list.at(1).text()).toEqual("item3");
+   });
+
 });

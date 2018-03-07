@@ -20,7 +20,6 @@ class Partner extends React.Component {
   underEdit = null;
 
   showAddModal = () => {
-    console.log("Add was clicked");
     this.modal.style.display = "block";
   }
   
