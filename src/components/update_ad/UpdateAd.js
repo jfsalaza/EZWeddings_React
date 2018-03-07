@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router';
+import {Link,browserHistory} from 'react-router';
 import '../../styles/updateAd.css';
 import {users, current_user} from '../../index';
 
@@ -57,7 +57,10 @@ class UpdateAd extends React.Component {
     users["tacos_el_gordo"].ad.email = this.state.email;
     users["tacos_el_gordo"].ad.phone_number = this.state.phone_number;
     users["tacos_el_gordo"].ad.address = this.state.address;    */
-    localStorage.setItem("updated_settings2", "tacos_el_gordo");          
+    localStorage.setItem("updated_Ad",JSON.stringify(this.state));          
+    browserHistory.push('/business_ad'); 
+    /*console.log(this.state.description);*/
+
   }
     render() {
       return (
@@ -81,13 +84,7 @@ class UpdateAd extends React.Component {
                   <br></br>
                   <input id ="photoidUL" type="file" name="photo" accept="image/gif, image/jpeg, image/png"></input> 
                   <br></br>
-              
-                  <br></br>
-                  Description<br></br>
-                  <input id="descriptionidUL" type="text" name="description"
-                  onChange={this.handleDescriptionchange} value={this.state.description}></input>           
-                  <br></br>
-                
+                             
                   <br></br>
                   Email:<br></br>
                   <input id="emailidUL" type="email" name="email"
@@ -99,62 +96,62 @@ class UpdateAd extends React.Component {
                   <input id="phoneidUL" type="tel" name="pnumber"
                   onChange={this.handlePnumberchange} value={this.state.phone_number}></input> 
                   <br></br>
-                
+                  
+                  <br></br>
+                  Description:<br></br>
+                  <textarea id="descriptionidUL" type="text" name="description"
+                  onChange={this.handleDescriptionchange} value={this.state.description}></textarea>           
+                  <br></br>
+
+                  {/*
                   <br></br>
                   Address:<br></br>
                   <input id="addressidUL" type="text" name="address"
                   onChange={this.handleAddresschange} value={this.state.address}></input> 
                   <br></br>
-                
-              
-                  {/*
-                  <br>  </br>       
-                    <input type="checkbox" name="vendortype" value="Music">
+                  
+                  <br></br>       
+                  <input type="checkbox" name="vendortype" value="Music"></input>
                   Music
                   <br></br>
+                  */}
                                   
                   <br></br>
-                  Categories:  
-                  <br></br><br></br>
-                  <input type="checkbox" name="vendortype" value="Music"></input> 
-                  Music
-                  <br></br>
-                    
+                  Categories:                     
                   <br></br>
                   <input type="checkbox" name="vendortype" value="Decorations"></input> 
                   Decorations
                   <br></br>
 
-                  <br></br>
-                  <input type="checkbox" name="vendortype" value="Food" checked></input> 
+
+                  <input type="checkbox" name="vendortype" value="Food"></input> 
                   Food
-                  <br></br>                   
-           
-                  <br></br>         
+                  <br></br>
+
+                  <input type="checkbox" name="vendortype" value="Drinks"></input> 
+                  Drinks
+                  <br></br>          
+     
                   <input type="checkbox" name="vendortype" value="Music"></input> 
                   Music
                   <br></br>
                 
-                  <br></br>         
                   <input type="checkbox" name="vendortype" value="Entertainment"></input> 
                   Entertainment
                   <br></br>
                 
-                  <br></br>         
                   <input type="checkbox" name="vendortype" value="Officiant"></input> 
                   Officiant
                   <br></br>
                 
-                  <br></br>
                   <input type="checkbox" name="vendortype" value="Security"></input> 
                   Security
                   <br></br>
                 
-                  <br></br>       
                   <input type="checkbox" name="vendortype" value="Florist"></input> 
                   Florist
                   <br></br>
-                  */}
+                  
                   <br></br>
                   <input id="submitidUL" type="submit" name="submit" value="Save Changes"></input>        
                 </form>  

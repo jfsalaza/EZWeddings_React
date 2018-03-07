@@ -1,32 +1,24 @@
-*{
-    padding:0;
-    margin:0;        
-    font-family: 'Libre Franklin', sans-serif;             
-}
-
 body{
     background-color: #F1F1F1;
 }
 
-#pageblockidBS{
+#pageblockIdS{
     background-color: white;
-
     width: 600px;
     margin-left: auto;
     margin-right: auto;  
-
     font-weight: 600;
     font-size: 18px;                 
 }
 
-#scontentidBS{
+#scontentIdS{
     margin-left: 25px;
 }
 
 /*input[type=text],input[type=email],
 input[type=password],input[type=tel]{*/
-#fnameidBS,#lnameidBS,
-#emailidBS,#pwordidBS,#phoneidBS{    
+#fnameIdS,#lnameIdS,
+#emailIdS,#pwordIdS,#phoneIdS{    
     font-size: 18px;                
     margin-bottom: 0px;   
     margin-top: 6px;   
@@ -35,15 +27,15 @@ input[type=password],input[type=tel]{*/
 }
 
 /*input[type=text]{*/
-#fnameidBS{
+#fnameIdS{
     width: 270px;                
 }
-#lnameidBS{
+#lnameIdS{
     width: 270px;                
 }
 
 /*input[type=submit]{*/
-#submitIdBS{
+#submitIdS{
     padding: 8px 12px 8px 12px;    
     text-align: center;        
     font-size: 16px;    
@@ -53,28 +45,29 @@ input[type=password],input[type=tel]{*/
     border-radius: 4px; 
     text-decoration: none;
     display: inline-block;
-    color: white;                
+    color: white;  
+    margin: 0px;              
     margin-bottom: 10px;
 }       
 
 /*input[type=submit]:hover{*/
-#submitIdBS{
+#submitIdS:hover{
     background: #1C7ABA;
 }            
 
-#lnameidBS{
+#lnameIdS{
     margin-left: 12px;
 }
 
-#p1idBS{
+#p1IdS{
     float: left;
 }           
 
-#p2idBS{
+#p2IdS{
     float:right;
     margin-right: 195px;
 } 
 
-#nameidBS{
+#nameIdS{
     overflow: hidden;
 }

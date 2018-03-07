@@ -1,6 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router';
 import {users, current_user} from '../../index';
+import '../../styles/business_ad.css';
+
 
 class BusinessAd extends React.Component {
   constructor(props) {
@@ -15,15 +17,29 @@ class BusinessAd extends React.Component {
 
     render() {
       return (
-        <div id="listingIdBA">
-          <h1 id="nameIdBA">{this.state.name}</h1>
+        <div id="pagedivIdBA">                
+          <div id="listingIdBA">          
+            <img src={require('../../img/business/'+users["tacos_el_gordo"].ad.img)} width="600px" height="400px"></img>
+          </div>  
+          
           <div id="listingInfoIdBA">
+            <h1 id="nameIdBA">{this.state.name}</h1>
             <h3 id="cnameIdBA">{this.state.title}</h3>
-            <img src={require('../../img/business/'+users["tacos_el_gordo"].ad.img)}></img>
-            <br></br><br></br>
-            <p>Description: {this.state.description}</p>
-            <p>Phone Number:{this.state.phone_number}</p>
-            <p>Email: {this.state.email}</p>
+            <hr id="hrIdBA"></hr>
+
+            <br></br>
+            <p>Contact: </p>
+            <p id="pnumberIdBA">Phone Number: {this.state.phone_number}</p>
+            <p id="emailIdBA">Email: {this.state.email}</p>
+            
+            <br></br>
+            <p id="descpIdBA">Description: </p>
+            <p id="descIdBA" >{this.state.description}</p>            
+          </div>
+          
+          <div id="catdivIdBA">
+            <p>Categories:</p>
+            <p id="citemsIdBA">Food, Drink, Catering</p>
           </div>
         </div>
       );

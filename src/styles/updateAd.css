@@ -1,20 +1,12 @@
-*{
-    padding:0;
-    margin:0;        
-    font-family: 'Libre Franklin', sans-serif;             
-}
-
 body{
     background-color: #F1F1F1;
 }
 
 #pageblockidUL{
     background-color: white;
-
     width: 600px;
     margin-left: auto;
     margin-right: auto;  
-
     font-weight: 600;
     font-size: 18px;                 
 }
@@ -52,3 +44,7 @@ input[type=password],input[type=tel]{*/
 #submitidUL:hover{
     background: #1C7ABA;
 } 
+
+#descriptionidUL{
+  height: 175px;
+}
