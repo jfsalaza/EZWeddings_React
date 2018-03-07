@@ -77,14 +77,13 @@ class Settings extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <div id="nameIdS">
               <p id="p1IdS">First Name</p>
-              <p id="p2IdS">Last Name</p>
-              
+              <p id="p2IdS">Last Name</p>              
               <br></br>
               <input id="fnameIdS" type="text" name="firstname"
-                     onChange={this.handleFnameChange} value={this.state.fname}></input>         
+              onChange={this.handleFnameChange} defaultValue ={this.state.fname}></input>         
                 
               <input id="lnameIdS" type="text" name="lastname"
-                     onChange={this.handleLnameChange} value={this.state.lname}></input> 
+              onChange={this.handleLnameChange} defaultValue ={this.state.lname} ></input> 
               <br></br>
             </div>
                    
@@ -95,25 +94,25 @@ class Settings extends React.Component {
 
             <br></br>            
             <input id ="photoIdS" type="file" name="photo" accept="image/gif, image/jpeg, image/png"
-                   onChange={this.handleImageChange}></input> 
+            onChange={this.handleImageChange}></input> 
             <br></br>
                    
             <br></br>
             Email:<br></br>
             <input id="emailIdS" type="email" name="email"
-                   value={this.state.email} onChange={this.handleEmailChange}></input> 
+            value={this.state.email} onChange={this.handleEmailChange}></input> 
             <br></br>
                    
             <br></br>
             Password:<br></br>
             <input id="pwordIdS" type="password" name="password"
-                   value={this.state.password} onChange={this.handlePasswordChange}></input> 
+            value={this.state.password} onChange={this.handlePasswordChange}></input> 
             <br></br>
                    
             <br></br>
             Phone number:<br></br>
             <input id="phoneIdS" type="tel" name="pnumber"
-                   value={this.state.phone_number} onChange={this.handlePnumberChange}></input> 
+            value={this.state.phone_number} onChange={this.handlePnumberChange}></input> 
             <br></br>
                     
             <br></br>

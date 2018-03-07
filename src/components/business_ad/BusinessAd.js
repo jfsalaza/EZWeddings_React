@@ -13,7 +13,48 @@ class BusinessAd extends React.Component {
                    description: users["tacos_el_gordo"].ad.description,
                    email: users["tacos_el_gordo"].ad.email,
                    phone_number: users["tacos_el_gordo"].ad.phone_number,
-                   address: users["tacos_el_gordo"].ad.address};}
+                   address: users["tacos_el_gordo"].ad.address,
+                   checkDC: false,
+                   checkF: true,
+                   checkD: true,
+                   checkM: false,
+                   checkE: false,
+                   checkO: false,
+                   checkS: false,
+                   checkFL: false };}
+                   
+    makeString(){
+      let displayS = '';
+
+      if(this.state.checkF){
+         displayS = displayS + "Food, ";
+      }
+      if(this.state.checkD){
+        displayS = displayS + "Drinks, ";
+      }     
+      if(this.state.checkDC){
+        displayS = displayS + "Decorations, ";
+      }  
+      if(this.state.checkFL){
+        displayS = displayS + "Florist, ";
+      }  
+      if(this.state.checkM){
+        displayS = displayS + "Music, ";
+      }      
+      if(this.state.checkE){
+        displayS = displayS + "Entertainment, ";
+      }      
+      if(this.state.checkO){
+        displayS = displayS + "Officaint, ";
+      }       
+      if(this.state.checkS){
+        displayS = displayS + "Security, ";
+      }  
+
+      displayS = displayS.substr(0,displayS.length -2);
+      /*console.log(displayS + " "+ displayS.length);*/
+      return displayS;
+    }    
 
     render() {
       return (
@@ -38,8 +79,8 @@ class BusinessAd extends React.Component {
           </div>
           
           <div id="catdivIdBA">
-            <p>Categories:</p>
-            <p id="citemsIdBA">Food, Drink, Catering</p>
+            <p>Categories:</p>            
+            <p id="citemsIdBA">{this.makeString()}</p>
           </div>
         </div>
       );

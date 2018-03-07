@@ -12,7 +12,14 @@ class UpdateAd extends React.Component {
                   description: users["tacos_el_gordo"].ad.description,
                   email: users["tacos_el_gordo"].ad.email,
                   phone_number: users["tacos_el_gordo"].ad.phone_number,
-                  address: users["tacos_el_gordo"].ad.address
+                  checkDC: false,
+                  checkF: true,
+                  checkD: true,
+                  checkM: false,
+                  checkE: false,
+                  checkO: false,
+                  checkS: false,
+                  checkFL: false     
                  };
 
     this.handleTitlechange = this.handleTitlechange.bind(this);
@@ -20,8 +27,15 @@ class UpdateAd extends React.Component {
     this.handleDescriptionchange = this.handleDescriptionchange.bind(this);
     this.handleEmailchange = this.handleEmailchange.bind(this);
     this.handlePnumberchange = this.handlePnumberchange.bind(this);
-    this.handleAddresschange = this.handleAddresschange.bind(this);
-
+    
+    this.handleCheckDCchange = this.handleCheckDCchange.bind(this);
+    this.handleCheckFchange = this.handleCheckFchange.bind(this);
+    this.handleCheckDchange = this.handleCheckDchange.bind(this);
+    this.handleCheckMchange = this.handleCheckMchange.bind(this);
+    this.handleCheckEchange = this.handleCheckEchange.bind(this);
+    this.handleCheckOchange = this.handleCheckOchange.bind(this);
+    this.handleCheckSchange = this.handleCheckSchange.bind(this);
+    this.handleCheckFLchange = this.handleCheckFLchange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -44,9 +58,37 @@ class UpdateAd extends React.Component {
   handlePnumberchange(event) {
     this.setState({phone_number: event.target.value});
   }
-  
-  handleAddresschange(event) {
-    this.setState({address: event.target.value});
+    
+  handleCheckDCchange(event) {
+    this.setState({checkDC: !(this.state.checkDC)});
+  }  
+
+  handleCheckFchange(event) {
+    this.setState({checkF: !(this.state.checkF)});
+  }  
+
+  handleCheckDchange(event) {
+    this.setState({checkD: !(this.state.checkD)});
+  }  
+
+  handleCheckMchange(event) {
+    this.setState({checkM: !(this.state.checkM)});
+  }  
+
+  handleCheckEchange(event) {
+    this.setState({checkE: !(this.state.checkE)});
+  }  
+
+  handleCheckOchange(event) {
+    this.setState({checkO: !(this.state.checkO)});
+  }  
+
+  handleCheckSchange(event) {
+    this.setState({checkS: !(this.state.checkS)});
+  }  
+
+  handleCheckFLchange(event) {
+    this.setState({checkFL: !(this.state.checkFL)});
   }  
 
   handleSubmit(event) {
@@ -103,55 +145,58 @@ class UpdateAd extends React.Component {
                   onChange={this.handleDescriptionchange} value={this.state.description}></textarea>           
                   <br></br>
 
-                  {/*
+     
                   <br></br>
-                  Address:<br></br>
-                  <input id="addressidUL" type="text" name="address"
-                  onChange={this.handleAddresschange} value={this.state.address}></input> 
+                  Categories:                     
+                  <br></br>
+                  <input type="checkbox" name="vendortype" value="Decorations" 
+                  onChange={this.handleCheckDCchange} checked={this.state.checkDC}></input> 
+                  Decorations
+                  <br></br>
+
+
+                  <input type="checkbox" name="vendortype" value="Food"
+                  onChange={this.handleCheckFchange} checked={this.state.checkF}></input> 
+                  Food
+                  <br></br>
+
+                  <input type="checkbox" name="vendortype" value="Drinks"
+                  onChange={this.handleCheckDchange} checked={this.state.checkD}></input> 
+                  Drinks
+                  <br></br>          
+     
+                  <input type="checkbox" name="vendortype" value="Music"
+                  onChange={this.handleCheckMchange} checked={this.state.checkM}></input> 
+                  Music
+                  <br></br>
+                
+                  <input type="checkbox" name="vendortype" value="Entertainment"
+                  onChange={this.handleCheckEchange} checked={this.state.checkE}></input> 
+                  Entertainment
+                  <br></br>
+                
+                  <input type="checkbox" name="vendortype" value="Officiant"
+                  onChange={this.handleCheckOchange} checked={this.state.checkO}></input> 
+                  Officiant
+                  <br></br>
+                
+                  <input type="checkbox" name="vendortype" value="Security"
+                  onChange={this.handleCheckSchange} checked={this.state.checkS}></input> 
+                  Security
+                  <br></br>
+                
+                  <input type="checkbox" name="vendortype" value="Florist"
+                  onChange={this.handleCheckFLchange} checked={this.state.checkFL}></input> 
+                  Florist
                   <br></br>
                   
+
+                  {/*                  
                   <br></br>       
                   <input type="checkbox" name="vendortype" value="Music"></input>
                   Music
                   <br></br>
                   */}
-                                  
-                  <br></br>
-                  Categories:                     
-                  <br></br>
-                  <input type="checkbox" name="vendortype" value="Decorations"></input> 
-                  Decorations
-                  <br></br>
-
-
-                  <input type="checkbox" name="vendortype" value="Food"></input> 
-                  Food
-                  <br></br>
-
-                  <input type="checkbox" name="vendortype" value="Drinks"></input> 
-                  Drinks
-                  <br></br>          
-     
-                  <input type="checkbox" name="vendortype" value="Music"></input> 
-                  Music
-                  <br></br>
-                
-                  <input type="checkbox" name="vendortype" value="Entertainment"></input> 
-                  Entertainment
-                  <br></br>
-                
-                  <input type="checkbox" name="vendortype" value="Officiant"></input> 
-                  Officiant
-                  <br></br>
-                
-                  <input type="checkbox" name="vendortype" value="Security"></input> 
-                  Security
-                  <br></br>
-                
-                  <input type="checkbox" name="vendortype" value="Florist"></input> 
-                  Florist
-                  <br></br>
-                  
                   <br></br>
                   <input id="submitidUL" type="submit" name="submit" value="Save Changes"></input>        
                 </form>  
