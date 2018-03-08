@@ -12,14 +12,18 @@ class UpdateAd extends React.Component {
                   description: users["tacos_el_gordo"].ad.description,
                   email: users["tacos_el_gordo"].ad.email,
                   phone_number: users["tacos_el_gordo"].ad.phone_number,
-                  checkDC: false,
-                  checkF: true,
-                  checkD: true,
-                  checkM: false,
-                  checkE: false,
+                  checkV: true,
                   checkO: false,
-                  checkS: false,
-                  checkFL: false     
+                  checkDC: false,
+                  checkFD: false,
+                  checkC: false,
+                  checkR: false,
+                  checkT: false,
+                  checkE: false,
+                  checkCL: false,
+                  checkHM: false,
+                  checkPV: false,
+                  categories: []
                  };
 
     this.handleTitlechange = this.handleTitlechange.bind(this);
@@ -28,14 +32,17 @@ class UpdateAd extends React.Component {
     this.handleEmailchange = this.handleEmailchange.bind(this);
     this.handlePnumberchange = this.handlePnumberchange.bind(this);
     
-    this.handleCheckDCchange = this.handleCheckDCchange.bind(this);
-    this.handleCheckFchange = this.handleCheckFchange.bind(this);
-    this.handleCheckDchange = this.handleCheckDchange.bind(this);
-    this.handleCheckMchange = this.handleCheckMchange.bind(this);
-    this.handleCheckEchange = this.handleCheckEchange.bind(this);
+    this.handleCheckVchange = this.handleCheckVchange.bind(this);
     this.handleCheckOchange = this.handleCheckOchange.bind(this);
-    this.handleCheckSchange = this.handleCheckSchange.bind(this);
-    this.handleCheckFLchange = this.handleCheckFLchange.bind(this);
+    this.handleCheckDCchange = this.handleCheckDCchange.bind(this);
+    this.handleCheckFDchange = this.handleCheckFDchange.bind(this);
+    this.handleCheckCchange = this.handleCheckCchange.bind(this);
+    this.handleCheckRchange = this.handleCheckRchange.bind(this);
+    this.handleCheckTchange = this.handleCheckTchange.bind(this);
+    this.handleCheckEchange = this.handleCheckEchange.bind(this);
+    this.handleCheckCLchange = this.handleCheckCLchange.bind(this);
+    this.handleCheckHMchange = this.handleCheckHMchange.bind(this);
+    this.handleCheckPVchange = this.handleCheckPVchange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -59,50 +66,91 @@ class UpdateAd extends React.Component {
     this.setState({phone_number: event.target.value});
   }
     
-  handleCheckDCchange(event) {
-    this.setState({checkDC: !(this.state.checkDC)});
-  }  
-
-  handleCheckFchange(event) {
-    this.setState({checkF: !(this.state.checkF)});
-  }  
-
-  handleCheckDchange(event) {
-    this.setState({checkD: !(this.state.checkD)});
-  }  
-
-  handleCheckMchange(event) {
-    this.setState({checkM: !(this.state.checkM)});
-  }  
-
-  handleCheckEchange(event) {
-    this.setState({checkE: !(this.state.checkE)});
+  handleCheckVchange(event) {
+    this.setState({checkV: !(this.state.checkV)});
   }  
 
   handleCheckOchange(event) {
     this.setState({checkO: !(this.state.checkO)});
   }  
 
-  handleCheckSchange(event) {
-    this.setState({checkS: !(this.state.checkS)});
+  handleCheckDCchange(event) {
+    this.setState({checkDC: !(this.state.checkDC)});
   }  
 
-  handleCheckFLchange(event) {
-    this.setState({checkFL: !(this.state.checkFL)});
+  handleCheckFDchange(event) {
+    this.setState({checkFD: !(this.state.checkFD)});
   }  
+
+  handleCheckCchange(event) {
+    this.setState({checkC: !(this.state.checkC)});
+  }  
+
+  handleCheckRchange(event) {
+    this.setState({checkR: !(this.state.checkR)});
+  }  
+
+  handleCheckTchange(event) {
+    this.setState({checkT: !(this.state.checkT)});
+  }  
+
+  handleCheckEchange(event) {
+    this.setState({checkE: !(this.state.checkE)});
+  }  
+
+  handleCheckCLchange(event) {
+    this.setState({checkCL: !(this.state.checkCL)});
+  }  
+
+  handleCheckHMchange(event) {
+    this.setState({checkHM: !(this.state.checkHM)});
+  }  
+
+  handleCheckPVchange(event) {
+    this.setState({checkPV: !(this.state.checkPV)});
+  }    
 
   handleSubmit(event) {
     event.preventDefault();
-    /*users["tacos_el_gordo"].ad.title = this.state.title;
-    users["tacos_el_gordo"].ad.name = this.state.name;
-    users["tacos_el_gordo"].ad.description = this.state.description;
-    users["tacos_el_gordo"].ad.email = this.state.email;
-    users["tacos_el_gordo"].ad.phone_number = this.state.phone_number;
-    users["tacos_el_gordo"].ad.address = this.state.address;    */
+
+    this.state.categories = [];
+    if(this.state.checkV){
+      this.state.categories.push('venues');
+    }
+    if(this.state.checkO){
+      this.state.categories.push('officiant');
+    }
+    if(this.state.checkDC){
+      this.state.categories.push('decorations');
+    }
+    if(this.state.checkFD){
+      this.state.categories.push('foodNdrinks');
+    }
+    if(this.state.checkC){
+      this.state.categories.push('cake');
+    }
+    if(this.state.checkR){
+      this.state.categories.push('rings');
+    }        
+    if(this.state.checkT){
+      this.state.categories.push('transportation');
+    }
+    if(this.state.checkE){
+      this.state.categories.push('entertainment');
+    }    
+    if(this.state.checkCL){
+      this.state.categories.push('clothing');
+    }
+    if(this.state.checkHM){
+      this.state.categories.push('hairNmakeup');
+    }    
+    if(this.state.checkPV){
+      this.state.categories.push('photoNvideo');
+    }
+
+    //console.log(this.state.categories);
     localStorage.setItem("updated_Ad",JSON.stringify(this.state));          
     browserHistory.push('/business_ad'); 
-    /*console.log(this.state.description);*/
-
   }
     render() {
       return (
@@ -149,47 +197,61 @@ class UpdateAd extends React.Component {
                   <br></br>
                   Categories:                     
                   <br></br>
-                  <input type="checkbox" name="vendortype" value="Decorations" 
-                  onChange={this.handleCheckDCchange} checked={this.state.checkDC}></input> 
-                  Decorations
+                  <input type="checkbox" name="vendortype" value="Venues" 
+                  onChange={this.handleCheckVchange} checked={this.state.checkV}></input> 
+                  Venues
                   <br></br>
 
 
-                  <input type="checkbox" name="vendortype" value="Food"
-                  onChange={this.handleCheckFchange} checked={this.state.checkF}></input> 
-                  Food
-                  <br></br>
-
-                  <input type="checkbox" name="vendortype" value="Drinks"
-                  onChange={this.handleCheckDchange} checked={this.state.checkD}></input> 
-                  Drinks
-                  <br></br>          
-     
-                  <input type="checkbox" name="vendortype" value="Music"
-                  onChange={this.handleCheckMchange} checked={this.state.checkM}></input> 
-                  Music
-                  <br></br>
-                
-                  <input type="checkbox" name="vendortype" value="Entertainment"
-                  onChange={this.handleCheckEchange} checked={this.state.checkE}></input> 
-                  Entertainment
-                  <br></br>
-                
                   <input type="checkbox" name="vendortype" value="Officiant"
                   onChange={this.handleCheckOchange} checked={this.state.checkO}></input> 
                   Officiant
                   <br></br>
-                
-                  <input type="checkbox" name="vendortype" value="Security"
-                  onChange={this.handleCheckSchange} checked={this.state.checkS}></input> 
-                  Security
+
+                  <input type="checkbox" name="vendortype" value="decorations"
+                  onChange={this.handleCheckDCchange} checked={this.state.checkDC}></input> 
+                  Decorations
+                  <br></br>          
+     
+                  <input type="checkbox" name="vendortype" value="foodNdrinks"
+                  onChange={this.handleCheckFDchange} checked={this.state.checkFD}></input> 
+                  Food and Drinks
                   <br></br>
                 
-                  <input type="checkbox" name="vendortype" value="Florist"
-                  onChange={this.handleCheckFLchange} checked={this.state.checkFL}></input> 
-                  Florist
+                  <input type="checkbox" name="vendortype" value="cake"
+                  onChange={this.handleCheckCchange} checked={this.state.checkC}></input> 
+                  Cake
                   <br></br>
-                  
+                
+                  <input type="checkbox" name="vendortype" value="rings"
+                  onChange={this.handleCheckRchange} checked={this.state.checkR}></input> 
+                  Rings
+                  <br></br>
+                
+                  <input type="checkbox" name="vendortype" value="transportaion"
+                  onChange={this.handleCheckTchange} checked={this.state.checkT}></input> 
+                  Transportaion
+                  <br></br>
+                
+                  <input type="checkbox" name="vendortype" value="entertainment"
+                  onChange={this.handleCheckEchange} checked={this.state.checkE}></input> 
+                  Entertainment
+                  <br></br>
+
+                  <input type="checkbox" name="vendortype" value="clothing"
+                  onChange={this.handleCheckCLchange} checked={this.state.checkCL}></input> 
+                  Clothing
+                  <br></br>
+                
+                  <input type="checkbox" name="vendortype" value="hairNmakeup"
+                  onChange={this.handleCheckHMchange} checked={this.state.checkHM}></input> 
+                  Hair and Makeup
+                  <br></br>
+                
+                  <input type="checkbox" name="vendortype" value="PhotoNvideo"
+                  onChange={this.handleCheckPVchange} checked={this.state.checkPV}></input> 
+                  Photo and Video
+                  <br></br>                  
 
                   {/*                  
                   <br></br>       

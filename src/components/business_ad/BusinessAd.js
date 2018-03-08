@@ -13,44 +13,55 @@ class BusinessAd extends React.Component {
                    description: users["tacos_el_gordo"].ad.description,
                    email: users["tacos_el_gordo"].ad.email,
                    phone_number: users["tacos_el_gordo"].ad.phone_number,
-                   address: users["tacos_el_gordo"].ad.address,
-                   checkDC: false,
-                   checkF: true,
-                   checkD: true,
-                   checkM: false,
-                   checkE: false,
-                   checkO: false,
-                   checkS: false,
-                   checkFL: false };}
+                   checkV: true,
+                   checkO: true,
+                   checkDC: true,
+                   checkFD: true,
+                   checkC: true,
+                   checkR: true,
+                   checkT: true,
+                   checkE: true,
+                   checkCL: true,
+                   checkHM: true,
+                   checkPV: true
+                  };}
                    
     makeString(){
       let displayS = '';
 
-      if(this.state.checkF){
-         displayS = displayS + "Food, ";
+      if(this.state.checkV){
+         displayS = displayS + 'venues, ';
       }
-      if(this.state.checkD){
-        displayS = displayS + "Drinks, ";
-      }     
-      if(this.state.checkDC){
-        displayS = displayS + "Decorations, ";
-      }  
-      if(this.state.checkFL){
-        displayS = displayS + "Florist, ";
-      }  
-      if(this.state.checkM){
-        displayS = displayS + "Music, ";
-      }      
-      if(this.state.checkE){
-        displayS = displayS + "Entertainment, ";
-      }      
       if(this.state.checkO){
-        displayS = displayS + "Officaint, ";
-      }       
-      if(this.state.checkS){
-        displayS = displayS + "Security, ";
-      }  
-
+         displayS = displayS + 'officiant, ';
+      }
+      if(this.state.checkDC){
+         displayS = displayS + 'decorations, ';
+      }
+      if(this.state.checkFD){
+         displayS = displayS + 'foodNdrinks, ';
+      }
+      if(this.state.checkC){
+         displayS = displayS + 'cake, ';
+      }
+      if(this.state.checkR){
+         displayS = displayS + 'rings, ';
+      }        
+      if(this.state.checkT){
+         displayS = displayS + 'transportation, ';
+      }
+      if(this.state.checkE){
+         displayS = displayS + 'entertainment, ';
+      }    
+      if(this.state.checkCL){
+         displayS = displayS + 'clothing, ';
+      }
+      if(this.state.checkHM){
+         displayS = displayS + 'hairNmakeup, ';
+      }    
+      if(this.state.checkPV){
+         displayS = displayS + 'photoNvideo, ';
+      }
       displayS = displayS.substr(0,displayS.length -2);
       /*console.log(displayS + " "+ displayS.length);*/
       return displayS;
