@@ -6,24 +6,24 @@ import {users, current_user} from '../../index';
 class UpdateAd extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { /*title: users[current_user].contact_info.name,*/
-                  title: users["tacos_el_gordo"].ad.title,
-                  name: users["tacos_el_gordo"].ad.name,
-                  description: users["tacos_el_gordo"].ad.description,
-                  email: users["tacos_el_gordo"].ad.email,
-                  phone_number: users["tacos_el_gordo"].ad.phone_number,
-                  checkV: true,
-                  checkO: false,
-                  checkDC: false,
-                  checkFD: false,
-                  checkC: false,
-                  checkR: false,
-                  checkT: false,
-                  checkE: false,
-                  checkCL: false,
-                  checkHM: false,
-                  checkPV: false,
-                  categories: []
+    this.state = { title: users["tacos_el_gordo2"].ad.title,
+                   name: users["tacos_el_gordo2"].ad.name,
+                   ad_pic: users["tacos_el_gordo2"].ad.ad_pic,
+                   description: users["tacos_el_gordo2"].ad.description,
+                   email: users["tacos_el_gordo2"].ad.email,
+                   phone_number: users["tacos_el_gordo2"].ad.phone_number,
+                   checkV: users["tacos_el_gordo2"].ad.checkV,
+                   checkO: users["tacos_el_gordo2"].ad.checkO,
+                   checkDC: users["tacos_el_gordo2"].ad.checkDC,
+                   checkFD: users["tacos_el_gordo2"].ad.checkFD,
+                   checkC: users["tacos_el_gordo2"].ad.checkC,
+                   checkR: users["tacos_el_gordo2"].ad.checkR,
+                   checkT: users["tacos_el_gordo2"].ad.checkT,
+                   checkE: users["tacos_el_gordo2"].ad.checkE,
+                   checkCL: users["tacos_el_gordo2"].ad.checkCL,
+                   checkHM: users["tacos_el_gordo2"].ad.checkHM,
+                   checkPV: users["tacos_el_gordo2"].ad.checkPV,
+                   categories: users["tacos_el_gordo2"].ad.categories
                  };
 
     this.handleTitlechange = this.handleTitlechange.bind(this);
@@ -112,8 +112,9 @@ class UpdateAd extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-
+    console.log(this.state.categories);
     this.state.categories = [];
+
     if(this.state.checkV){
       this.state.categories.push('venues');
     }

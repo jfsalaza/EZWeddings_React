@@ -7,25 +7,26 @@ import '../../styles/business_ad.css';
 class BusinessAd extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { title: users["tacos_el_gordo"].ad.title,
-                   name: users["tacos_el_gordo"].ad.name,
-                   bimg: users["tacos_el_gordo"].ad.img,
-                   description: users["tacos_el_gordo"].ad.description,
-                   email: users["tacos_el_gordo"].ad.email,
-                   phone_number: users["tacos_el_gordo"].ad.phone_number,
-                   checkV: true,
-                   checkO: true,
-                   checkDC: true,
-                   checkFD: true,
-                   checkC: true,
-                   checkR: true,
-                   checkT: true,
-                   checkE: true,
-                   checkCL: true,
-                   checkHM: true,
-                   checkPV: true
-                  };}
-                   
+    this.state = { title: users["tacos_el_gordo2"].ad.title,
+                   name: users["tacos_el_gordo2"].ad.name,
+                   ad_pic: users["tacos_el_gordo2"].ad.ad_pic,
+                   description: users["tacos_el_gordo2"].ad.description,
+                   email: users["tacos_el_gordo2"].ad.email,
+                   phone_number: users["tacos_el_gordo2"].ad.phone_number,
+                   checkV: users["tacos_el_gordo2"].ad.checkV,
+                   checkO: users["tacos_el_gordo2"].ad.checkO,
+                   checkDC: users["tacos_el_gordo2"].ad.checkDC,
+                   checkFD: users["tacos_el_gordo2"].ad.checkFD,
+                   checkC: users["tacos_el_gordo2"].ad.checkC,
+                   checkR: users["tacos_el_gordo2"].ad.checkR,
+                   checkT: users["tacos_el_gordo2"].ad.checkT,
+                   checkE: users["tacos_el_gordo2"].ad.checkE,
+                   checkCL: users["tacos_el_gordo2"].ad.checkCL,
+                   checkHM: users["tacos_el_gordo2"].ad.checkHM,
+                   checkPV: users["tacos_el_gordo2"].ad.checkPV,
+                   categories: users["tacos_el_gordo2"].ad.categories
+                };}
+
     makeString(){
       let displayS = '';
 
@@ -71,7 +72,7 @@ class BusinessAd extends React.Component {
       return (
         <div id="pagedivIdBA">                
           <div id="listingIdBA">          
-            <img src={require('../../img/business/'+users["tacos_el_gordo"].ad.img)} width="600px" height="400px"></img>
+            <img src={require('../../img/business/'+users["tacos_el_gordo2"].ad.ad_pic)} width="600px" height="400px"></img>
           </div>  
           
           <div id="listingInfoIdBA">
