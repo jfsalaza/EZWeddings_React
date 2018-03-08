@@ -12,7 +12,7 @@ class Settings extends React.Component {
                    email: users['tacos_el_gordo2'].user_info.email,
                    password: users['tacos_el_gordo2'].user_info.password,
                    phone_number: users['tacos_el_gordo2'].user_info.phone_number,
-                   account_type: users['tacos_el_gordo2'].user_info.account_type,
+                   account_type: users['tacos_el_gordo2'].user_info.account_type
                   };
 
     this.handleFnamechange = this.handleFnamechange.bind(this);
