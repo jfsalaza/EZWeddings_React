@@ -21,7 +21,7 @@ class BusinessSearch extends React.Component {
       return (
       <div>
         <div className="title">
-          <img id="title-img" src="cogs.jpeg" alt="wedding"/>
+          <img id="title-img" src="../cogs.jpeg" alt="wedding"/>
           <div className="title-centered"><h1>Vendor Search</h1></div>
         </div>
 

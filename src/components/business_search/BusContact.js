@@ -21,7 +21,7 @@ const BusContact = (props) => {
                 <br />
                 <div className = "moveItem" >Number: {props.num}</div>
                 <div className = "moveItem1" >Email: {props.email}</div>
-                <button className = "accept-button" >View</button>
+                <Link to="business_ad"><button className = "accept-button" >View</button></Link>
             </div>
     )
 }
