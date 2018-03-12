@@ -1,24 +1,7 @@
-/*eslint-disable import/default */
-import 'babel-polyfill';
-import React from 'react';
-import { render } from 'react-dom';
-import configureStore from './store/configureStore';
-import {Provider} from 'react-redux';
-import { Router, browserHistory } from 'react-router';
-import routes from './routes';
-import {loadCourses} from './actions/courseActions';
-import {loadAuthors} from './actions/authorActions';
-import {loadUsers, getCurrentUser} from './actions/usersActions';
+import delay from './delay';
 
-
-const store = configureStore();
-store.dispatch(loadCourses());
-store.dispatch(loadAuthors());
-store.dispatch(loadUsers());
-store.dispatch(getCurrentUser());
-
-export const users = {
-  rosa_melano: {
+const users = [
+    {
     uid: "rosa_melano",
     contact_info: {
       name: "Rosa Melano",
@@ -29,7 +12,7 @@ export const users = {
     account_type: "planner",
     partners: ["fairbanks"]
   },
-  elver_galarga: {
+  {
     uid: "elver_galarga",
     contact_info: {
       name: "Elver Galarga",
@@ -40,7 +23,7 @@ export const users = {
     account_type: "planner",
     partners: ["tacos_el_gordo", "fairbanks", "banda_ms"]
   },
-  john_smith: {
+  {
     uid: "john_smith",
     contact_info: {
       name: "John Smith",
@@ -51,7 +34,7 @@ export const users = {
     account_type: "planner",
     partners: ["tacos_el_gordo", "fairbanks", "banda_ms"]
   },
-  jane_doe: {
+  {
     uid: "jane_doe",
     contact_info: {
       name: "Jane Doe",
@@ -62,7 +45,7 @@ export const users = {
     account_type: "planner",
     partners: ["tacos_el_gordo", "fairbanks", "banda_ms"]
   },
-  fairbanks: {
+  {
     uid: "fairbanks",
     contact_info: {
       name: "Fairbanks Ranch Country Club",
@@ -76,7 +59,7 @@ export const users = {
     ad: {},
     business_type: ["venues"]
   },
-  banda_ms: {
+  {
     uid: "banda_ms",
     contact_info: {
       name: "Banda MS",
@@ -90,7 +73,7 @@ export const users = {
     ad: {},
     business_type: ["entertainment"]
   },
-  tacos_el_gordo: {
+  {
     uid: "tacos_el_gordo",
     contact_info: {
       name: "Tacos El Gordo",
@@ -101,38 +84,28 @@ export const users = {
     profile_pic: "TACOS.png",
     account_type: "business",
     partners: ["rosa_melano", "elver_galarga", "john_smith", "jane_doe"],
-    ad: {
-      title: "Taco Bonita",
-      name: "Tacos El Gordo",
-      img: "TACOS.png",
-      description: "The best Tacos in a 3ft radius",
-      email: "tacos_el_gordo@email.com",
-      phone_number: "619-691-8848",
-      address: "689 H St, Chula Vista, CA 91910",
-      categories: ["foodNdrinks"]
-      },
+    ad: {},
     business_type: ["foodNdrinks"]
-    }   
-};
+  }];
 
-var names = ["elver_galarga", "rosa_melano","john_smith","jane_doe"];
-var busNames = ["tacos_el_gordo", "banda_ms","fairbanks"];
+const current_user = ["tacos_el_gordo"];
 
-localStorage.setItem("users", JSON.stringify(users));
-localStorage.setItem("current_user", "elver_galarga");
-localStorage.setItem("names",JSON.stringify(names));
-localStorage.setItem("busNames",JSON.stringify(busNames));
+class UsersApi {
+    static getAllUsers() {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(Object.assign([], users));
+            }, delay);
+        });
+    }
 
+    static getCurrentUser() {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(Object.assign([], current_user));
+            }, delay);
+        });
+    }
+}
 
-export const current_user = "tacos_el_gordo";
-
-localStorage.setItem("users", JSON.stringify(users));
-localStorage.setItem("current_user", "tacos_el_gordo");
-
-
-render(
-  <Provider store={store} >
-    <Router history={browserHistory} routes={routes} />
-  </Provider>,
-  document.getElementById('app')
-);
+export default UsersApi;
