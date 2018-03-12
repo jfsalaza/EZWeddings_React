@@ -86,7 +86,47 @@ const users = [
     partners: ["rosa_melano", "elver_galarga", "john_smith", "jane_doe"],
     ad: {},
     business_type: ["foodNdrinks"]
-  }];
+  },
+  {	
+    user_info: 
+    {
+      uid: "tacos_el_gordo",
+      fname: "Bill",
+      lname: "Bobby",  
+      profile_pic: "TACOS.png",
+      email: "tacogordo@gmail.com",
+      password: "tacoPants",
+      phone_number: "619-691-8848",
+      account_type: "business"
+    },
+    
+    partners: ["rosa_melano", "elver_galarga", "john_smith", "jane_doe"],
+  
+    ad: 
+    {
+      title: "Taco Bonita",
+      name: "Tacos El Gordo",
+      ad_pic: "TACOS.png",
+      description: "The best Tacos in a 3ft radius",
+      email: "tacos_el_gordo@email.com",
+      phone_number: "619-691-8848", 
+      checkV: true,             
+      checkO: true,
+      checkDC: true,
+      checkFD: true,
+      checkC: true,
+      checkR: true,
+      checkT: true,
+      checkE: true, 
+      checkCL: true, 
+      checkHM: true, 
+      checkPV: true, 	
+      categories: ["venues", "officiant", "decorations", "foodNdrinks", 
+                   "cake", "rings", "transportation", "entertainment", "clothing", 
+                   "hairNmakeup", "photoNvideo"]
+    }
+  }
+];
 
 const current_user = ["tacos_el_gordo"];
 
