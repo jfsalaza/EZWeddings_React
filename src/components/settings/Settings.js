@@ -6,13 +6,14 @@ import {users, current_user} from '../../index';
 class Settings extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { fname: users[current_user].contact_info.name,
-                   lname: users[current_user].contact_info.name,    
-                   email: users[current_user].contact_info.email,
-                   password: '********',
-                   phone_number: users[current_user].contact_info.phone_number,
-                   account_type: users[current_user].account_type,
-                   image: require('../../img/settings/diagonal.jpg') };
+    this.state = { fname: users['tacos_el_gordo2'].user_info.fname,
+                   lname: users['tacos_el_gordo2'].user_info.lname,  
+                   profile_pic: require('../../img/settings/diagonal.jpg'),
+                   email: users['tacos_el_gordo2'].user_info.email,
+                   password: users['tacos_el_gordo2'].user_info.password,
+                   phone_number: users['tacos_el_gordo2'].user_info.phone_number,
+                   account_type: users['tacos_el_gordo2'].user_info.account_type
+                  };
 
     this.handleFnamechange = this.handleFnamechange.bind(this);
     this.handleLnamechange = this.handleLnamechange.bind(this);
@@ -57,11 +58,6 @@ class Settings extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    /*users[current_user].contact_info.name = this.state.name;
-    users[current_user].contact_info.name = this.state.name;
-    users[current_user].contact_info.email = this.state.email;
-    users[current_user].contact_info.phone_number = this.state.phone_number;
-    */
         
     localStorage.setItem("updated_settings",JSON.stringify(this.state)); 
     browserHistory.push('/my_account');  
@@ -90,7 +86,7 @@ class Settings extends React.Component {
             <br></br>
             Photo:<br></br>
             {/*<img src={require("../../img/settings/diagonal.jpg")} width="255" height="200"></img>*/}
-            <img src={this.state.image} width="255" height="200"></img>
+            <img src={this.state.profile_pic} width="255" height="200"></img>
 
             <br></br>            
             <input id ="photoIdS" type="file" name="photo" accept="image/gif, image/jpeg, image/png"

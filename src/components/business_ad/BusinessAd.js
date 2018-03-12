@@ -7,50 +7,62 @@ import '../../styles/business_ad.css';
 class BusinessAd extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { title: users["tacos_el_gordo"].ad.title,
-                   name: users["tacos_el_gordo"].ad.name,
-                   bimg: users["tacos_el_gordo"].ad.img,
-                   description: users["tacos_el_gordo"].ad.description,
-                   email: users["tacos_el_gordo"].ad.email,
-                   phone_number: users["tacos_el_gordo"].ad.phone_number,
-                   address: users["tacos_el_gordo"].ad.address,
-                   checkDC: false,
-                   checkF: true,
-                   checkD: true,
-                   checkM: false,
-                   checkE: false,
-                   checkO: false,
-                   checkS: false,
-                   checkFL: false };}
-                   
+    this.state = { title: users["tacos_el_gordo2"].ad.title,
+                   name: users["tacos_el_gordo2"].ad.name,
+                   ad_pic: users["tacos_el_gordo2"].ad.ad_pic,
+                   description: users["tacos_el_gordo2"].ad.description,
+                   email: users["tacos_el_gordo2"].ad.email,
+                   phone_number: users["tacos_el_gordo2"].ad.phone_number,
+                   checkV: users["tacos_el_gordo2"].ad.checkV,
+                   checkO: users["tacos_el_gordo2"].ad.checkO,
+                   checkDC: users["tacos_el_gordo2"].ad.checkDC,
+                   checkFD: users["tacos_el_gordo2"].ad.checkFD,
+                   checkC: users["tacos_el_gordo2"].ad.checkC,
+                   checkR: users["tacos_el_gordo2"].ad.checkR,
+                   checkT: users["tacos_el_gordo2"].ad.checkT,
+                   checkE: users["tacos_el_gordo2"].ad.checkE,
+                   checkCL: users["tacos_el_gordo2"].ad.checkCL,
+                   checkHM: users["tacos_el_gordo2"].ad.checkHM,
+                   checkPV: users["tacos_el_gordo2"].ad.checkPV,
+                   categories: users["tacos_el_gordo2"].ad.categories
+                };}
+
     makeString(){
       let displayS = '';
 
-      if(this.state.checkF){
-         displayS = displayS + "Food, ";
+      if(this.state.checkV){
+         displayS = displayS + 'venues, ';
       }
-      if(this.state.checkD){
-        displayS = displayS + "Drinks, ";
-      }     
-      if(this.state.checkDC){
-        displayS = displayS + "Decorations, ";
-      }  
-      if(this.state.checkFL){
-        displayS = displayS + "Florist, ";
-      }  
-      if(this.state.checkM){
-        displayS = displayS + "Music, ";
-      }      
-      if(this.state.checkE){
-        displayS = displayS + "Entertainment, ";
-      }      
       if(this.state.checkO){
-        displayS = displayS + "Officaint, ";
-      }       
-      if(this.state.checkS){
-        displayS = displayS + "Security, ";
-      }  
-
+         displayS = displayS + 'officiant, ';
+      }
+      if(this.state.checkDC){
+         displayS = displayS + 'decorations, ';
+      }
+      if(this.state.checkFD){
+         displayS = displayS + 'foodNdrinks, ';
+      }
+      if(this.state.checkC){
+         displayS = displayS + 'cake, ';
+      }
+      if(this.state.checkR){
+         displayS = displayS + 'rings, ';
+      }        
+      if(this.state.checkT){
+         displayS = displayS + 'transportation, ';
+      }
+      if(this.state.checkE){
+         displayS = displayS + 'entertainment, ';
+      }    
+      if(this.state.checkCL){
+         displayS = displayS + 'clothing, ';
+      }
+      if(this.state.checkHM){
+         displayS = displayS + 'hairNmakeup, ';
+      }    
+      if(this.state.checkPV){
+         displayS = displayS + 'photoNvideo, ';
+      }
       displayS = displayS.substr(0,displayS.length -2);
       /*console.log(displayS + " "+ displayS.length);*/
       return displayS;
@@ -60,7 +72,7 @@ class BusinessAd extends React.Component {
       return (
         <div id="pagedivIdBA">                
           <div id="listingIdBA">          
-            <img src={require('../../img/business/'+users["tacos_el_gordo"].ad.img)} width="600px" height="400px"></img>
+            <img src={require('../../img/business/'+users["tacos_el_gordo2"].ad.ad_pic)} width="600px" height="400px"></img>
           </div>  
           
           <div id="listingInfoIdBA">
