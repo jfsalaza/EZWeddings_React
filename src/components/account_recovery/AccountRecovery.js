@@ -45,20 +45,20 @@ class AccountRecovery extends React.Component {
 render() {
       if(this.state.redirect === 'false'){
       return (
-        <div id="pagedivR">
-          <div id="contentdivR">
+        <div id="pagedivAR">
+          <div id="contentdivAR">
           <label>
           <h3>Account Recovery</h3>
           </label>
           <form onSubmit={this.handleSubmit}>
           <label>
             Email:
-            <input id="emailidR" ref = "email"type="email" value={this.state.email} onChange={this.handleChange} />
+            <input id="emailIdAR" ref = "email"type="email" value={this.state.email} onChange={this.handleChange} />
           </label>
           <br />
           <label>
             Confirm Email:
-            <input id="emailidR" ref = "confirmEmail" type="email" value={this.state.confirmEmail} onChange={this.handleChange} />
+            <input id="email2IdAR" ref = "confirmEmail" type="email" value={this.state.confirmEmail} onChange={this.handleChange} />
           </label>
           <br />
           <input type="submit" value="Submit"/>

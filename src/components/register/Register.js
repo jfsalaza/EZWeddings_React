@@ -1,132 +1,121 @@
 import React from 'react';
+import {Link,browserHistory} from 'react-router';
 import '../../styles/register.css';
-import {Link} from 'react-router';
-
 
 class Register extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      firstName: props.firstName,
-      lastName: '',
-      email: '',
-      password: '',
-      phoneNumber: '',
-      client: false,
-      vendor: false
-    };
+    this.state = { fname: '',
+                   lname: '',
+                   email: '',
+                   password: "",
+                   cpassword: "",
+                   phone_number: "",
+                   account_type: "",
+                   cradio: "client"};
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleFnamechange = this.handleFnamechange.bind(this);
+    this.handleLnamechange = this.handleLnamechange.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handleCPasswordChange = this.handleCPasswordChange.bind(this);
+    this.handlePnumberChange = this.handlePnumberChange.bind(this);
+    this.handleCradioChange = this.handleCradioChange.bind(this);
+
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
-
-    const target = event.target;
-    const clientBox = target.type === 'checkbox' ? target.checked : target.value;
-    const vendorBox = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
-
-    this.setState({
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-      password: password,
-      phoneNumber: phoneNumber,
-      client: clientBox,
-      vendor: vendor,
-    });
+  handleFnamechange(event) {
+    this.setState({fname: event.target.value});
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    console.log(this.refs.firstName.value);
-    console.log(this.refs.lastName.value);
-    console.log(this.refs.email.value);
-    console.log(this.refs.password.value);
-    var users = JSON.parse(localStorage.getItem("users"));
-    let firstName = this.refs.firstName.value;
-    let lastName = this.refs.lastName.value;
-    let email = this.refs.email.value;
-    let password = this.refs.password.value;
-    let number = this.refs.number.value;
-    let uid = firstName.concat(lastName);
-    // users.uid = {
-    //   uid,
-    //   contact_info:{
-    //     name :firstName + ' ' + lastName,
-    //     phone_number: number,
-    //     email: email,
-    //     address: "none"
-    //   },
-    //   "banda_ms.jpg",
-    //   "business",
-    //   "none",
-    //   {},
-    //   "none"
-    // };
-    this.setState({
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-      password: password,
-      phoneNumber: phoneNumber,
-      client: clientBox,
-      vendor: vendor,
-    })
-   // alert('A name was submitted: ' + this.state.firstName.value);
+  handleLnamechange(event) {
+    this.setState({lname: event.target.value});
   }
-    render() {
-      return (
-        <div id="pagedivR">
-          <div id="contentdivR">
-          <label>
-          <h3>Register an Account</h3>
-          </label>
-          <form onSubmit={this.handleSubmit.bind(this)}>
-              <label>
-                <div id = "nameid">
-                  First Name:
-                  <input type="text" ref="firstName" value={this.state.firstName}  onChange={this.handleChange}/>
-                </div>
-              </label>
-              <label>
-                <div id = "nameid">
-                  Last Name:
-                  <input type="text" ref="lastName" value={this.state.lastName} onChange={this.handleChange}/>
-                </div>
-              </label>
-              <br />
-              <label>
-                Email:
-                <input id="emailidR" ref="email"type="email" value={this.state.email} onChange={this.handleChange} />
-              </label>
-              <br />
-              <label>
-                Password:
-                <input id="passwordidR" ref="password" type="password" value={this.state.password} onChange={this.handleChange} />
-              </label>
-              <label>
-                Confirm Password:
-                <input id="passwordidR" ref="password" type="password" value={this.state.password} onChange={this.handleChange} />
-              </label>
-              <br />
-              <label>
-                Phone Number:
-                <input type="tel" ref="number"value={this.state.phoneNumber} onChange={this.handleChange} />
-              </label>
-              <br />
-              <Link to='/'>
-              <input type="submit" value="Join Now" />
-              </Link>
-              <Link to = 'account_recovery'>
-              <input type="submit" value = "Forgot Password"/>
-              </Link>
-        </form>
-        </div>
-      </div>
-      )
-    }
+
+  handleEmailChange(event) {
+    this.setState({email: event.target.value});
+  }
+
+  handlePasswordChange(event) {
+    this.setState({password: event.target.value});
   }
   
-  export default Register;
+  handleCPasswordChange(event) {
+    this.setState({password: event.target.value});
+  }
+
+  handlePnumberChange(event) {
+    this.setState({phone_number: event.target.value});
+  }
+
+  handleCradioChange(event) {
+    this.setState({cradio: event.target.value});
+  }
+  handleSubmit(event) {
+    event.preventDefault();
+    /*users[current_user].contact_info.name = this.state.name;
+    users[current_user].contact_info.name = this.state.name;
+    users[current_user].contact_info.email = this.state.email;
+    users[current_user].contact_info.phone_number = this.state.phone_number;
+    */
+   localStorage.setItem("updated_register",JSON.stringify(this.state)); 
+   browserHistory.push('/my_account');  
+  }
+  
+  render() {
+    return (
+
+      <div>
+        <img src={require("../../img/register/hands.jpeg")} className="bg"></img>
+
+      <div id="pagedivIdR">
+        <div id="contentdivIdR">
+          <h3 id="h3IdR">Register an Account</h3>
+          
+          <form onSubmit={this.handleSubmit}>
+            <div id = "nameIdR">
+              Name:<br></br>
+              <input id="fnameIdR" type="text" ref="firstName" placeholder="first" value={this.state.fname}  onChange={this.handleFnamechange}></input>            
+              <input id="lnameIdR" type="text" ref="lastName" placeholder="last" value={this.state.lname} onChange={this.handleLnamechange}></input>
+              <br></br>
+            </div>
+  
+            <br></br>
+            Email:<br></br>
+            <input id="emailIdR" ref="email"type="email" value={this.state.email} onChange={this.handleEmailChange}></input>
+            <br></br>
+              
+            <br></br>
+            Password:<br></br>
+            <input id="passwordIdR" ref="password" type="password" value={this.state.password} onChange={this.handlePasswordChange}></input>
+            <br></br>
+            
+            <br></br>
+            Confirm Password:<br></br>
+            <input id="password2IdR" ref="password" type="password" value={this.state.cpassword} onChange={this.handleCPasswordChange}></input>
+            <br></br>
+
+            <br></br>
+            Phone Number:<br></br>
+            <input id="telIdR" type="tel" ref="number"value={this.state.phone_number} onChange={this.handlePnumberChange}></input>
+            <br></br>
+            
+            <br></br>           
+            <input id="cradioidR" type="radio" name="clientvendor" value="client" onChange={this.handleCradioChange}></input>  
+            Client
+                    
+            <input id="vradioidR" type="radio" name="clientvendor" value="vendor" onChange={this.handleCradioChange}></input>  
+            Vendor
+            <br></br>
+                   
+            <input id="subIdR" type="submit" value="Join Now"></input>          
+          </form>
+
+        </div>
+      </div></div>
+    );
+  }
+}
+ 
+export default Register;

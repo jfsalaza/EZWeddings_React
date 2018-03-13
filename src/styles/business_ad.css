@@ -1,0 +1,49 @@
+ *{
+  margin:0px;
+  padding: 0px;
+
+ } 
+ #pagedivIdBA{
+    margin-top: 30px;
+    margin-left: 40px;
+    margin-right: 40px;
+
+  }
+  
+  #listingIdBA{
+    vertical-align: top;
+    display: inline-block;
+    margin:0px;
+    margin-right: 40px;
+  }
+  #listingInfoIdBA{
+    vertical-align: top;
+    display: inline-block;
+    /*font-size: 18px;*/
+  }
+  
+  #nameIdBA,#cnameIdBA,#hrIdBA{
+      margin: 0px;
+  }
+  #hrIdBA{
+      border:0px;
+      height:1px;
+      color: #333; 
+      background-color: #333; 
+      min-width: 400px;
+  }
+
+  #emailIdBA,#pnumberIdBA,#descIdBA,#citemsIdBA{
+    margin-left: 20px;
+  }
+  
+  #descIdBA{  
+    max-width: 550px;
+    max-height: 180px;
+    overflow-y: auto;
+  }  
+    
+  #catdivIdBA{
+    margin-top: 15px;
+    /*font-size: 18px;*/
+  }
