@@ -24,7 +24,7 @@ class Business extends React.Component{
             let lol = planner.contact_info.name.toLowerCase().indexOf(filteredBus);
             console.log(lol);
             if(lol !== -1){
-            planner_list.push(<BusContact img={profile_pic} uid={uid} num={number} email = {email}>{name}</BusContact>);
+            planner_list.push(<BusContact img={"../"+profile_pic} uid={uid} num={number} email = {email}>{name}</BusContact>);
             }
         }
 

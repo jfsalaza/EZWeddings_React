@@ -26,6 +26,7 @@ export default (
     <Route path="my_partners" component={MyPartners} />
     <Route path="/my_partners/:uid" component={Partner} />
     <Route path="business_search" component={BusinessSearch} />
+    <Route path="business_search/:type" component={BusinessSearch} />
     <Route path="settings" component={Settings} />
     <Route path="register" component={Register} />
     <Route path="requests" component={Requests} />

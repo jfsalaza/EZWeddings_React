@@ -6,15 +6,16 @@ import configureStore from './store/configureStore';
 import {Provider} from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 import routes from './routes';
-//import {loadCourses} from './actions/courseActions';
-//import {loadAuthors} from './actions/authorActions';
-//import './styles/styles.css'; //Webpack can import CSS files too!
-//import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-//import '../node_modules/toastr/build/toastr.min.css';
+import {loadCourses} from './actions/courseActions';
+import {loadAuthors} from './actions/authorActions';
+import {loadUsers, getCurrentUser} from './actions/usersActions';
+
 
 const store = configureStore();
-//store.dispatch(loadCourses());
-//store.dispatch(loadAuthors());
+store.dispatch(loadCourses());
+store.dispatch(loadAuthors());
+store.dispatch(loadUsers());
+store.dispatch(getCurrentUser());
 
 export const users = {
   rosa_melano: {
@@ -111,7 +112,49 @@ export const users = {
       categories: ["foodNdrinks"]
       },
     business_type: ["foodNdrinks"]
-    }   
+    },
+   
+    tacos_el_gordo2: {	
+      user_info: 
+      {
+        uid: "tacos_el_gordo",
+        fname: "Bill",
+        lname: "Bobby",  
+        profile_pic: "TACOS.png",
+        email: "tacogordo@gmail.com",
+        password: "tacoPants",
+        phone_number: "619-691-8848",
+        account_type: "business"
+      },
+      
+      partners: ["rosa_melano", "elver_galarga", "john_smith", "jane_doe"],
+    
+      ad: 
+      {
+        title: "Taco Bonita",
+        name: "Tacos El Gordo",
+        ad_pic: "TACOS.png",
+        description: "The best Tacos in a 3ft radius",
+        email: "tacos_el_gordo@email.com",
+        phone_number: "619-691-8848", 
+        checkV: true,             
+        checkO: true,
+        checkDC: true,
+        checkFD: true,
+        checkC: true,
+        checkR: true,
+        checkT: true,
+        checkE: true, 
+        checkCL: true, 
+        checkHM: true, 
+        checkPV: true, 	
+        categories: ["venues", "officiant", "decorations", "foodNdrinks", 
+                     "cake", "rings", "transportation", "entertainment", "clothing", 
+                     "hairNmakeup", "photoNvideo"]
+      }
+    }
+    
+
 };
 
 var names = ["elver_galarga", "rosa_melano","john_smith","jane_doe"];
