@@ -9,6 +9,7 @@ import routes from './routes';
 import {loadCourses} from './actions/courseActions';
 import {loadAuthors} from './actions/authorActions';
 import {loadUsers, getCurrentUser} from './actions/usersActions';
+import {loadMyPartners} from './actions/myPartnersActions';
 
 
 const store = configureStore();
@@ -16,6 +17,7 @@ store.dispatch(loadCourses());
 store.dispatch(loadAuthors());
 store.dispatch(loadUsers());
 store.dispatch(getCurrentUser());
+store.dispatch(loadMyPartners());
 
 export const users = {
   rosa_melano: {
