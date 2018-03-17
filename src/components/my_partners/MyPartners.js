@@ -21,8 +21,6 @@ class MyPartners extends React.Component {
         title_text = "My Clients";
       }
 
-      console.log(partners);
-
       let partners_list = [];
 
       for(let i = 0; i < partners.length; i++) {
@@ -51,8 +49,5 @@ class MyPartners extends React.Component {
     };
   }
 
-  function matchDispatchToProps(dispatch) {
-    return bindActionCreators({loadUsers: loadUsers, getCurrentUser: getCurrentUser}, dispatch)
-  }
   
-  export default connect(mapStateToProps, matchDispatchToProps)(MyPartners);
+  export default connect(mapStateToProps)(MyPartners);

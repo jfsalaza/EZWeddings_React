@@ -5,7 +5,12 @@ import Chat from './Chat';
 import AddModal from './AddModal';
 import EditModal from './EditModal';
 import Title from '../common/Title';
+import {connect} from 'react-redux';
 import {users, current_user} from '../common/Header';
+import {bindActionCreators} from 'redux';
+import {loadUsers, getCurrentUser} from '../../actions/usersActions';
+import {sendMessage} from '../../actions/myPartnersActions';
+
 
 class Partner extends React.Component {
   state = {
@@ -20,6 +25,9 @@ class Partner extends React.Component {
   underEdit = null;
 
   showAddModal = () => {
+    const testmsg = {from: "tacos_el_gordo", to: "rosa_melano", msg: "test"};
+    this.props.sendMessage(testmsg);
+    console.log(this.props.my_partners);
     this.modal.style.display = "block";
   }
   
@@ -82,6 +90,7 @@ class Partner extends React.Component {
   }
 
   render() {
+    console.log(this.props.my_partners);
     const partner = users[this.props.params.uid];
     const name = partner.contact_info.name;
     const profile_pic = "../"+partner.profile_pic;
@@ -115,5 +124,17 @@ class Partner extends React.Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    users: state.users,
+    current_user: state.current_user,
+    my_partners: state.my_partners
+  };
+}
+
+function matchDispatchToProps(dispatch) {
+  return bindActionCreators({sendMessage: sendMessage, loadUsers: loadUsers, getCurrentUser: getCurrentUser}, dispatch)
+}
   
-  export default Partner;
+export default connect(mapStateToProps, matchDispatchToProps)(Partner);
