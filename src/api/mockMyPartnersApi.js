@@ -49,6 +49,24 @@ class MyPartnersApi {
             }, delay);
         });
     }
+
+    static sendMessage(message) {
+        const message2 = Object.assign({}, message);
+        const my_partners2 = Object.assign({}, my_partners);
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const partners = my_partners2[message2.from];
+                for(let i = 0; i < partners.length; i++) {
+                    let partner = partners[i];
+                    if(partner.uid == message2.to) {
+                        //my_partners2.push(message2.msg)
+                        console.log("IN HERE");
+                    }
+                }
+                resolve(Object.assign({}, my_partners, {msg: message}));
+            }, delay);
+        });
+    }
 }
 
 export default MyPartnersApi;

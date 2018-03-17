@@ -4,7 +4,9 @@ import initalState from './initialState';
 export default function myPartnersReducer(state = initalState.my_partners, action) {
     switch(action.type) {
         case types.LOAD_MY_PARTNERS_SUCCESS:
-        return action.my_partners;
+            return action.my_partners;
+        case types.SEND_MESSAGE_SUCCESS:
+            return action.my_partners;
         default:
             return state;
     }
