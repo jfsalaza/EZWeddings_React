@@ -39,45 +39,50 @@ const users = {
         email: "jane_doe@email.com",
         password: "doe1",
         phone_number: "888-888-8888",
-        account_type: "planner",
+        account_type: "planner"
     },
     fairbanks: {
         uid: "fairbanks",
-        fname: "John",
+        fname: "Fairbanks",
         lname: "Doe", 
         profile_pic: "wedding_venue_1.jpg",
         email: "fairbanks@email.com",
         password: "password",
         phone_number: "858-356-2135",
         address: "15150 San Dieguito Road, Rancho Santa Fe, CA 92067",
-        account_type: "business"
+        account_type: "business",
+        category: "venues"
     },
     banda_ms: {
         uid: "banda_ms",
-        fname: "John",
+        fname: "Banda MS",
         lname: "Doe",
         profile_pic: "banda_ms.jpg",
         email: "banda_ms@email.com",
         password: "password",
         phone_number: "777-777-7777",
         address: "Mazatlan, Sinaloa, Mexico",
-        account_type: "business"
+        account_type: "business",
+        category: "entertainment"
     },
     tacos_el_gordo: {
         uid: "tacos_el_gordo",
-        fname: "Bill",
+        fname: "Tacos El Gordo",
         lname: "Bobby",  
         profile_pic: "TACOS.png",
         email: "tacos_el_gordo@email.com",
         password: "password",
         phone_number: "619-691-8848",
         address: "689 H St, Chula Vista, CA 91910",
-        account_type: "business"
+        account_type: "business",
+        category: "foodNdrinks"
     }
 
 };
 
 const current_user = { current_user: "tacos_el_gordo" };
+
+const businesses = ["tacos_el_gordo","banda_ms", "fairbanks"];
 
 class UsersApi {
     static getAllUsers() {

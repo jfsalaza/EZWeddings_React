@@ -4,17 +4,6 @@ import '../../styles/request.css';
 
 let namesClicked = [];
 class Requests extends React.Component {
-<<<<<<< HEAD
-
-    wasClicked(e){
-      console.log(e.currentTarget.id);
-      e.currentTarget
-      //namesClicked.push(e.currentTarget.id);
-      //console.log(namesClicked.length);
-      //this.setState({toRemove:'true'});
-    }
-
-=======
   state = {
     requests: [ "elver_galarga", "rosa_melano"
     ]
@@ -30,29 +19,10 @@ class Requests extends React.Component {
             return {requests: next};
     });
   }
->>>>>>> 6bd7f71f8f9985576a6d92a02fa5d365c5868f13
     render() { 
       
       const users = JSON.parse(localStorage.getItem("users"));
       const names = JSON.parse(localStorage.getItem("names"));
-<<<<<<< HEAD
-      let planner_list = [];
-
-      for(let i = 0; i < names.length; i++) {
-        let planner = users[names[i]];
-        let uid = planner.uid;
-        let profile_pic = planner.profile_pic;
-        let name = planner.contact_info.name;
-        let number = planner.contact_info.phone_number;
-        let email = planner.contact_info.email;
-        let id = name;
-        console.log("Hello");
-        planner_list.push(<ReqUsers clicked = {this.wasClicked} img={"../"+profile_pic} uid={uid} num={number} email = {email}>{name}</ReqUsers>);
-         
-      }
-
-      return <div id="client-info" style={{textAlign: "center"}}>{planner_list}</div>;
-=======
       return (
         <div id="client-info" style={{textAlign: "center"}}>
           {
@@ -66,7 +36,6 @@ class Requests extends React.Component {
           }
         </div>
       );
->>>>>>> 6bd7f71f8f9985576a6d92a02fa5d365c5868f13
     }
   }
   

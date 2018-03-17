@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router';
 import {users, current_user} from '../../index';
 import '../../styles/business_ad.css';
+import {connect} from 'react-redux';
 
 
 class BusinessAd extends React.Component {
@@ -99,4 +100,11 @@ class BusinessAd extends React.Component {
     }
   }
   
-  export default BusinessAd;
+  function mapStateToProps(state){
+    return{
+      business_ad: state.business_ad
+    }
+  }
+
+
+  export default connect(mapStateToProps)(BusinessAd);

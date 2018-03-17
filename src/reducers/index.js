@@ -5,6 +5,8 @@ import users from './usersReducer';
 import current_user from './currentUserReducer';
 import my_partners from './myPartnersReducer';
 import ajaxCallsInProgress from './ajaxStatusReducer';
+import business from './business-reducers';
+import business_ad from './ads-reducer';
 
 const rootReducer = combineReducers({
   users,
@@ -12,7 +14,9 @@ const rootReducer = combineReducers({
   my_partners,
   courses,
   authors,
-  ajaxCallsInProgress
+  ajaxCallsInProgress,
+  business,
+  business_ad
 });
 
 export default rootReducer;

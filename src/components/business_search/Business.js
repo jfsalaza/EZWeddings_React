@@ -2,34 +2,49 @@ import React from 'react';
 import {Link} from 'react-router';
 import BusContact from './BusContact'
 import '../../styles/request.css';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {loadUsers, getCurrentUser} from '../../actions/usersActions';
 
 
 class Business extends React.Component{
     render(){
-        const users = JSON.parse(localStorage.getItem("users"));
-        const names = JSON.parse(localStorage.getItem("busNames"));
-        let planner_list = [];
-
+        const users = this.props.users;
+        const business = this.props.business;
+        let business_list = [];
         let filteredBus = this.props.category;
+        console.log(this.props.business[0].uid);
+        console.log(this.props.users);
 
-        for(let i = 0; i < names.length; i++) {
-            let planner = users[names[i]];
-            let uid = planner.uid;
-            let profile_pic = planner.profile_pic;
-            let name = planner.contact_info.name;
-            let number = planner.contact_info.phone_number;
-            let email = planner.contact_info.email;
-            console.log(filteredBus);
-            console.log(planner.contact_info.name.toLowerCase().indexOf(filteredBus));
-            let lol = planner.contact_info.name.toLowerCase().indexOf(filteredBus);
-            console.log(lol);
+        for(let i = 0; i < business.length; i++) {
+            let bus = users[business[i].uid];
+            let uid = bus.uid;
+            let profile_pic = business.profile_pic;
+            let name = bus.fname ;
+            let number = bus.phone_number;
+            let email = bus.email;
+            //console.log(planner.contact_info.name.toLowerCase().indexOf(filteredBus));
+            let lol = bus.category.toLowerCase().indexOf(filteredBus);
+            //console.log(lol);
             if(lol !== -1){
-            planner_list.push(<BusContact img={"../"+profile_pic} uid={uid} num={number} email = {email}>{name}</BusContact>);
+            console.log("Hello" + bus.uid);
+            business_list.push(<BusContact business={bus} img={"../"+profile_pic} uid={uid} num={number} email = {email}>{name}</BusContact>);
             }
         }
 
-        return <div id="client-info" style={{textAlign: "center"}}>{planner_list}</div>;
+        return <div id="client-info" style={{textAlign: "center"}}>{business_list}</div>;
         }
 }
 
-export default Business;
+function mapStateToProps(state){
+    return{
+      business: state.business,
+      users: state.users
+    };
+  }
+
+//   function matchDispatchToProps(dispatch) {
+//     return bindActionCreators({loadUsers: loadUsers, getCurrentUser: getCurrentUser}, dispatch)
+//   }
+
+export default connect(mapStateToProps)(Business);
