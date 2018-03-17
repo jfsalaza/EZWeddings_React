@@ -13,22 +13,21 @@ class Business extends React.Component{
         const business = this.props.business;
         let business_list = [];
         let filteredBus = this.props.category;
-        console.log(this.props.business[0].uid);
-        console.log(this.props.users);
+        //console.log(this.props.business[0].uid);
+        //console.log(this.props.users);
 
         for(let i = 0; i < business.length; i++) {
             let bus = users[business[i].uid];
             let uid = bus.uid;
-            let profile_pic = business.profile_pic;
+            console.log("business id " + bus.uid);
+            let profile_pic = bus.profile_pic;
             let name = bus.fname ;
             let number = bus.phone_number;
             let email = bus.email;
-            //console.log(planner.contact_info.name.toLowerCase().indexOf(filteredBus));
             let lol = bus.category.toLowerCase().indexOf(filteredBus);
-            //console.log(lol);
             if(lol !== -1){
-            console.log("Hello " + bus.uid);
-            business_list.push(<BusContact business={bus} img={"../"+profile_pic} uid={uid} num={number} email = {email}>{name}</BusContact>);
+            console.log("Hello " + bus.profile_pic);
+           business_list.push(<BusContact business={bus} img={profile_pic} uid={uid} num={number} email = {email}>{name}</BusContact>);
             }
         }
 

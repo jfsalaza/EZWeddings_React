@@ -51,7 +51,8 @@ const users = {
         phone_number: "858-356-2135",
         address: "15150 San Dieguito Road, Rancho Santa Fe, CA 92067",
         account_type: "business",
-        category: "venues"
+        category: "venues",
+        request:[]
     },
     banda_ms: {
         uid: "banda_ms",
@@ -63,7 +64,8 @@ const users = {
         phone_number: "777-777-7777",
         address: "Mazatlan, Sinaloa, Mexico",
         account_type: "business",
-        category: "entertainment"
+        category: "entertainment",
+        request:[]
     },
     tacos_el_gordo: {
         uid: "tacos_el_gordo",
@@ -75,7 +77,8 @@ const users = {
         phone_number: "619-691-8848",
         address: "689 H St, Chula Vista, CA 91910",
         account_type: "business",
-        category: "foodNdrinks"
+        category: "foodNdrinks",
+        request: []
     }
 
 };

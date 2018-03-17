@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router';
 import '../../styles/request.css';
 import '../../styles/businessSearch.css';
+//import '../../public';
 import { bindActionCreators } from 'redux';
 import {connect} from 'react-redux';
 import {businessAdSelected} from '../../actions/businessAdDisplay'
@@ -9,7 +10,8 @@ import {businessAdSelected} from '../../actions/businessAdDisplay'
 
 const BusContact = (props) => {
   //  const user = "/requests/"+props.uid;
-  const user = props.business;
+  //const user = props.business;
+  console.log("business " +props.img);
     return(
             <div className="client">
                 <h3>{props.children}</h3>
