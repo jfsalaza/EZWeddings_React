@@ -4,110 +4,128 @@ const my_partners = {
     rosa_melano: {
         fairbanks: {
             chat: [],
-            todo: []
+            todo: [],
+            idCounter: 0
         },
         tacos_el_gordo: {
             chat: [],
-            todo: []
+            todo: [],
+            idCounter: 0
         }
     },
     elver_galarga: {
         fairbanks: {
             chat: [],
-            todo: []
+            todo: [],
+            idCounter: 0
         },
         tacos_el_gordo: {
             chat: [],
-            todo: []
+            todo: [],
+            idCounter: 0
         },
         banda_ms: {
             chat: [],
-            todo: []
+            todo: [],
+            idCounter: 0
         }
     },
     john_smith: {
         fairbanks: {
             chat: [],
-            todo: []
+            todo: [],
+            idCounter: 0
         },
         tacos_el_gordo: {
             chat: [],
-            todo: []
+            todo: [],
+            idCounter: 0
         },
         banda_ms: {
             chat: [],
-            todo: []
+            todo: [],
+            idCounter: 0
         }
     },
     jane_doe: {
         fairbanks: {
             chat: [],
-            todo: []
+            todo: [],
+            idCounter: 0
         },
         tacos_el_gordo: {
             chat: [],
-            todo: []
+            todo: [],
+            idCounter: 0
         },
         banda_ms: {
             chat: [],
-            todo: []
+            todo: [],
+            idCounter: 0
         }
     },
     fairbanks: {
         rosa_melano: {
             chat: [],
-            todo: []
+            todo: [],
+            idCounter: 0
         },
         elver_galarga: {
             chat: [],
-            todo: []
+            todo: [],
+            idCounter: 0
         },
         john_smith: {
             chat: [],
-            todo: []
+            todo: [],
+            idCounter: 0
         },
         jane_doe: {
             chat: [],
-            todo: []
+            todo: [],
+            idCounter: 0
         }
     },
     tacos_el_gordo: {
         rosa_melano: {
             chat: [],
-            todo: []
+            todo: [],
+            idCounter: 0
         },
         elver_galarga: {
             chat: [],
-            todo: []
+            todo: [],
+            idCounter: 0
         },
         john_smith: {
             chat: [],
-            todo: []
+            todo: [],
+            idCounter: 0
         },
         jane_doe: {
             chat: [],
-            todo: []
+            todo: [],
+            idCounter: 0
         }
     },
     banda_ms: {
         elver_galarga: {
             chat: [],
-            todo: []
+            todo: [],
+            idCounter: 0
         },
         john_smith: {
             chat: [],
-            todo: []
+            todo: [],
+            idCounter: 0
         },
         jane_doe: {
             chat: [],
-            todo: []
+            todo: [],
+            idCounter: 0
         }
     }
 };
-
-
-//const my_partners2 = [{uid: "rosa_melano"}, {uid:"elver_galarga"}];
-//const my_partners = {rosa_melano: "rosa", elver_galarga: "elver"};
 
 
 class MyPartnersApi {
@@ -124,25 +142,37 @@ class MyPartnersApi {
             setTimeout(() => {
                 const from = message.from;
                 const to = message.to;
-                const msg = message.msg;
+                const chat = message.chat;
                 const sender = Object.assign({}, my_partners[from]);
-                //const newChat = Object.assign([], sender[to].chat, [msg]);
-                const newPartner = {chat: msg, todo: sender[to].todo};
+                const newPartner = {chat: chat, todo: sender[to].todo, idCounter: sender[to].idCounter};
+                
                 sender[to] = newPartner;
                 my_partners[from] = sender;
                 
-               console.log("In API");
-               console.log(message);
-
-                //my_partners.push(message);
-               // my_partners[message.msg] = message;
-                //resolve(my_partners);
                 let newSender = {};
                 newSender[from] = sender;
                 resolve(newSender);
             }, delay);
         });
     }
+
+    static addToDo(todoLoad) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const current_user = Object.assign({}, my_partners[todoLoad.current_user]);
+                const partner = todoLoad.partner;
+                const idCounter = todoLoad.idCounter;
+                const todoList = todoLoad.list;
+                current_user[partner] = {chat: current_user[partner].chat, todo: todoList, idCounter: idCounter};
+                my_partners[todoLoad.current_user] = current_user;
+
+                let newCurrentUser = {};
+                newCurrentUser[todoLoad.current_user] = current_user;
+                resolve(newCurrentUser);
+            }, delay);
+        });
+    }
+
 }
 
 export default MyPartnersApi;

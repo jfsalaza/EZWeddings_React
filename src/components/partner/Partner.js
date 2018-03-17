@@ -9,7 +9,7 @@ import {connect} from 'react-redux';
 import {users, current_user} from '../common/Header';
 import {bindActionCreators} from 'redux';
 import {loadUsers, getCurrentUser} from '../../actions/usersActions';
-import {sendMessage} from '../../actions/myPartnersActions';
+import {sendMessage, addToDoItem} from '../../actions/myPartnersActions';
 
 
 class Partner extends React.Component {
@@ -25,9 +25,6 @@ class Partner extends React.Component {
   underEdit = null;
 
   showAddModal = () => {
-    //console.log(this.props.my_partners);
-    const testmsg = {from: "tacos_el_gordo", to: "rosa_melano", msg: "test"};
-    this.props.sendMessage(testmsg);
     this.modal.style.display = "block";
   }
   
@@ -52,6 +49,21 @@ class Partner extends React.Component {
 
   addToDoItem = (e) => {
     let text = this.modalText.value;
+    const current_user = this.props.current_user;
+    const partner = this.props.params.uid;
+    const my_partners = this.props.my_partners[current_user];
+    const newTodoList = my_partners[partner].todo.slice(0);
+    const prevIdCounter = my_partners[partner].idCounter;
+    newTodoList.push({id: prevIdCounter, text: text});
+    const newIdCounter = prevIdCounter + 1;
+    const toDoLoad = {
+      current_user: current_user,
+      partner: partner,
+      idCounter: newIdCounter,
+      list: newTodoList
+    }
+
+    /*
     this.setState((prevState) => 
     {
             var next = prevState.items.slice();
@@ -61,6 +73,19 @@ class Partner extends React.Component {
             this.modalText.value = "";
             return {idCounter: idCounter, items: next}
     });
+    //
+    let toDoLoad = {
+      current_user: this.props.current_user.slice(0),
+      partner: this.props.params.uid,
+      idCounter: 0,
+      list: ["hello"]
+    }
+    */
+    this.props.addToDoItem(toDoLoad);
+    //console.log(this.props.my_partners);
+
+
+    this.modalText.value = "";
     this.modal.style.display = "none";
   }
 
@@ -97,6 +122,8 @@ class Partner extends React.Component {
     const email = partner.contact_info.email;
     const address = partner.contact_info.address;
     const account_type = users[current_user].account_type;
+    const todo = this.props.my_partners[this.props.current_user][this.props.params.uid].todo;
+
     let bg_pic = "../title_bg.jpeg";
 
     if(account_type == "business") {
@@ -106,7 +133,7 @@ class Partner extends React.Component {
       <div style={{textAlign: "center"}}>
         <Title img={bg_pic}>{name}</Title>
         <Contact img={profile_pic} phone_number={phone_number} email={email} address={address}/>
-        <Todo addModal={this.showAddModal} editModal={this.showEditModal}>{this.state.items}</Todo>
+        <Todo addModal={this.showAddModal} editModal={this.showEditModal}>{todo}</Todo>
         <Chat puid={this.props.params.uid}/>
         <AddModal modalRef={el => this.modal = el} 
                   modalTextRef={el => this.modalText = el} 
@@ -127,13 +154,18 @@ class Partner extends React.Component {
 function mapStateToProps(state) {
   return {
     users: state.users,
-    current_user: state.current_user,
+    current_user: state.current_user.current_user,
     my_partners: state.my_partners
   };
 }
 
 function matchDispatchToProps(dispatch) {
-  return bindActionCreators({sendMessage: sendMessage, loadUsers: loadUsers, getCurrentUser: getCurrentUser}, dispatch)
+  return bindActionCreators({
+    sendMessage: sendMessage, 
+    loadUsers: loadUsers, 
+    getCurrentUser: getCurrentUser,
+    addToDoItem: addToDoItem
+  }, dispatch)
 }
   
 export default connect(mapStateToProps, matchDispatchToProps)(Partner);
