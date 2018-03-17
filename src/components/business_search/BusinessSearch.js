@@ -1,6 +1,5 @@
 import React from 'react';
-import Business from "./Business"
-
+import Business from "./Business";
 import "../../public/cogs.jpeg";
 import '../../styles/businessSearch.css';
 
@@ -15,9 +14,9 @@ class BusinessSearch extends React.Component {
 
     updateSearch(event){
       this.setState({search: event.target.value});
-
     }
     render() {
+
       return (
       <div>
         <div className="title">

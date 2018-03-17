@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router';
 import {users, current_user} from '../../index';
 import '../../styles/business_ad.css';
+import {connect} from 'react-redux';
 
 
 class BusinessAd extends React.Component {
@@ -76,13 +77,13 @@ class BusinessAd extends React.Component {
           </div>  
           
           <div id="listingInfoIdBA">
-            <h1 id="nameIdBA">{this.state.name}</h1>
+            <h1 id="nameIdBA">{this.props.business_ad.fname}</h1>
             <h3 id="cnameIdBA">{this.state.title}</h3>
             <hr id="hrIdBA"></hr>
 
             <br></br>
             <p>Contact: </p>
-            <p id="pnumberIdBA">Phone Number: {this.state.phone_number}</p>
+            <p id="pnumberIdBA">Phone Number: {this.props.business_ad.phone_number}</p>
             <p id="emailIdBA">Email: {this.state.email}</p>
             
             <br></br>
@@ -99,4 +100,11 @@ class BusinessAd extends React.Component {
     }
   }
   
-  export default BusinessAd;
+  function mapStateToProps(state){
+    return{
+     business_ad: state.business_ad
+    }
+  }
+
+
+  export default connect(mapStateToProps)(BusinessAd);

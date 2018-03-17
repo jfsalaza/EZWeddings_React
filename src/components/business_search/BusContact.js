@@ -2,10 +2,14 @@ import React from 'react';
 import {Link} from 'react-router';
 import '../../styles/request.css';
 import '../../styles/businessSearch.css';
+import { bindActionCreators } from 'redux';
+import {connect} from 'react-redux';
+import {businessAdSelected} from '../../actions/businessAdDisplay'
 
 
 const BusContact = (props) => {
   //  const user = "/requests/"+props.uid;
+  const user = props.business;
     return(
             <div className="client">
                 <h3>{props.children}</h3>
@@ -21,9 +25,19 @@ const BusContact = (props) => {
                 <br />
                 <div className = "moveItem" >Number: {props.num}</div>
                 <div className = "moveItem1" >Email: {props.email}</div>
-                <Link to="business_ad"><button className = "accept-button" >View</button></Link>
+                <Link to="business_ad"><button className = "accept-button" onClick = {()=> this.props.businessAdSelected(user)}>View</button></Link>
             </div>
     )
 }
 
-export default BusContact;
+function mapStateToProps(state){
+    return{
+      users: state.users,
+      business_ad: state.business_ad
+    };
+  }
+
+  function matchDispatchToProps(dispatch){
+      return bindActionCreators({businessAdSelected: businessAdSelected}, dispatch)
+  }
+export default connect(mapStateToProps,matchDispatchToProps)(BusContact);

@@ -2,6 +2,7 @@ import React, {Component}from 'react';
 import ReqUsers from './ReqUsers';
 import '../../styles/request.css';
 
+let namesClicked = [];
 class Requests extends React.Component {
   state = {
     requests: [ "elver_galarga", "rosa_melano"
@@ -19,6 +20,7 @@ class Requests extends React.Component {
     });
   }
     render() { 
+      
       const users = JSON.parse(localStorage.getItem("users"));
       const names = JSON.parse(localStorage.getItem("names"));
       return (
