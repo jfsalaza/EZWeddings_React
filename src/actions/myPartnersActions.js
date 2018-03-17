@@ -17,15 +17,18 @@ export function loadMyPartners() {
     };
 }
 
-export function sendMessageSuccess(my_partners) {
-    return {type: types.SEND_MESSAGE_SUCCESS, my_partners};
+export function sendMessageSuccess(message) {
+    return {type: types.SEND_MESSAGE_SUCCESS, message};
 }
 
 export function sendMessage(message){
+    console.log(message);
     return dispatch => {
         dispatch(beginAjaxCall());
-        return MyPartnersApi.sendMessage(message).then(my_partners => {
-            dispatch(sendMessageSuccess(my_partners));
+        return MyPartnersApi.sendMessage(message).then(message => {
+            console.log("In action");
+            console.log(message);
+            dispatch(sendMessageSuccess(message));
         }).catch(error => {
             throw(error);
         });

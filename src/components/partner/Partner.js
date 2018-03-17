@@ -1,7 +1,7 @@
 import React from 'react';
 import Contact from './Contact';
 import Todo from './Todo';
-import Chat from './Chat';
+import Chat from './Chat2';
 import AddModal from './AddModal';
 import EditModal from './EditModal';
 import Title from '../common/Title';
@@ -25,9 +25,9 @@ class Partner extends React.Component {
   underEdit = null;
 
   showAddModal = () => {
+    //console.log(this.props.my_partners);
     const testmsg = {from: "tacos_el_gordo", to: "rosa_melano", msg: "test"};
     this.props.sendMessage(testmsg);
-    console.log(this.props.my_partners);
     this.modal.style.display = "block";
   }
   
@@ -90,7 +90,6 @@ class Partner extends React.Component {
   }
 
   render() {
-    console.log(this.props.my_partners);
     const partner = users[this.props.params.uid];
     const name = partner.contact_info.name;
     const profile_pic = "../"+partner.profile_pic;
@@ -108,7 +107,7 @@ class Partner extends React.Component {
         <Title img={bg_pic}>{name}</Title>
         <Contact img={profile_pic} phone_number={phone_number} email={email} address={address}/>
         <Todo addModal={this.showAddModal} editModal={this.showEditModal}>{this.state.items}</Todo>
-        <Chat/>
+        <Chat puid={this.props.params.uid}/>
         <AddModal modalRef={el => this.modal = el} 
                   modalTextRef={el => this.modalText = el} 
                   closeModal={this.closeModal}

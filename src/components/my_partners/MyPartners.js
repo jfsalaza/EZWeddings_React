@@ -9,9 +9,10 @@ import {loadUsers, getCurrentUser} from '../../actions/usersActions';
 class MyPartners extends React.Component {
     
     render() {
-      const partners = this.props.my_partners;
-      const users = this.props.users;
-      const current_user = this.props.current_user.current_user;
+      const my_partners = Object.assign({}, this.props.my_partners);
+      const partners = Object.keys(my_partners);
+      const users = Object.assign({}, this.props.users);
+      const current_user = this.props.current_user.current_user.slice(0);
       const account_type = users[current_user].account_type;
       let bg_pic = "../title_bg5.jpeg";
       let title_text = "Collaborators";
@@ -24,7 +25,7 @@ class MyPartners extends React.Component {
       let partners_list = [];
 
       for(let i = 0; i < partners.length; i++) {
-        let partner = users[partners[i].uid];
+        let partner = users[partners[i]];
         let uid = partner.uid;
         let profile_pic = partner.profile_pic;
         let name = partner.fname+" "+partner.lname;
