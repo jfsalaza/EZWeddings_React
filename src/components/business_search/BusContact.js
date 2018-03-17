@@ -9,10 +9,10 @@ import {businessAdSelected} from '../../actions/businessAdDisplay'
 
 const BusContact = (props) => {
   //  const user = "/requests/"+props.uid;
+  const user = props.business;
     return(
             <div className="client">
                 <h3>{props.children}</h3>
-                <h3>{props.business.uid}</h3>
                 <img src={props.img} className="client-picture"/>
                 <p id = "request-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel imperdiet lorem. 
                     Donec consequat quam quis ante mattis tincidunt. Curabitur eros nunc, condimentum sed leo 
@@ -25,14 +25,13 @@ const BusContact = (props) => {
                 <br />
                 <div className = "moveItem" >Number: {props.num}</div>
                 <div className = "moveItem1" >Email: {props.email}</div>
-                <Link to="business_ad"><button className = "accept-button" onClick = {()=> this.props.businessAdSelected(props.business)}>View</button></Link>
+                <Link to="business_ad"><button className = "accept-button" onClick = {()=> this.props.businessAdSelected(user)}>View</button></Link>
             </div>
     )
 }
 
 function mapStateToProps(state){
     return{
-      business: state.business,
       users: state.users,
       business_ad: state.business_ad
     };

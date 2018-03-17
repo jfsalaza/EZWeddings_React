@@ -27,7 +27,7 @@ class Business extends React.Component{
             let lol = bus.category.toLowerCase().indexOf(filteredBus);
             //console.log(lol);
             if(lol !== -1){
-            console.log("Hello" + bus.uid);
+            console.log("Hello " + bus.uid);
             business_list.push(<BusContact business={bus} img={"../"+profile_pic} uid={uid} num={number} email = {email}>{name}</BusContact>);
             }
         }
