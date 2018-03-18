@@ -93,7 +93,7 @@ class Settings extends React.Component {
     console.log(nUser);
     var tmp = this.props.updateUser(nUser);
     //console.log(tmp);
-    //browserHistory.push('/my_account');  
+    browserHistory.push('/my_account');  
     //JSON.stringify(state)  -- turn javascript to json
     //JSON.parse(state) - turn json into javascript
   }
