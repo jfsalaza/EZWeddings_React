@@ -112,3 +112,19 @@ export function handleRequest(requestLoad) {
         });
     };
 }
+
+
+export function updateUserSuccess(users) {
+    return {type: types.UPDATE_USER_SUCCESS, users};
+}
+
+export function updateUser(freshUser) {
+    return dispatch => {
+        dispatch(beginAjaxCall());
+        return UsersApi.updateFreshUser(freshUser).then(newCurrentUser => {
+            dispatch(updateUserSuccess(newCurrentUser));
+        }).catch(error => {
+            throw(error);
+        })
+    };
+}
