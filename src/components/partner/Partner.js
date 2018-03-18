@@ -13,11 +13,6 @@ import {sendMessage, addToDoItem} from '../../actions/myPartnersActions';
 
 
 class Partner extends React.Component {
-  state = {
-    idCounter: 0,
-    items: [
-    ]
-  };
   modal = null;
   modalText = null;
   editModal = null;
@@ -29,12 +24,15 @@ class Partner extends React.Component {
   }
   
   showEditModal = (e) => {
-    let items = this.state.items;
+    const current_user = this.props.current_user;
+    const partner = this.props.params.uid;
+    const my_partners = this.props.my_partners[current_user];
+    const todoList = my_partners[partner].todo.slice(0);
     let text = "";
     this.underEdit = e.currentTarget.id;
-    for(let i = 0; i<items.length; i++) {
-      if(items[i].id == this.underEdit) {
-        text = items[i].text;
+    for(let i = 0; i<todoList.length; i++) {
+      if(todoList[i].id == this.underEdit) {
+        text = todoList[i].text;
         break;
       }
     }
@@ -63,27 +61,7 @@ class Partner extends React.Component {
       list: newTodoList
     }
 
-    /*
-    this.setState((prevState) => 
-    {
-            var next = prevState.items.slice();
-            let idCounter = prevState.idCounter;
-            next.push({id: idCounter, text: text});
-            idCounter = idCounter + 1;
-            this.modalText.value = "";
-            return {idCounter: idCounter, items: next}
-    });
-    //
-    let toDoLoad = {
-      current_user: this.props.current_user.slice(0),
-      partner: this.props.params.uid,
-      idCounter: 0,
-      list: ["hello"]
-    }
-    */
     this.props.addToDoItem(toDoLoad);
-    //console.log(this.props.my_partners);
-
 
     this.modalText.value = "";
     this.modal.style.display = "none";
@@ -91,26 +69,53 @@ class Partner extends React.Component {
 
   editToDoItem = (e) => {
     if(this.editModalText.value == "") return;
-    let itemsUpdate = this.state.items;
-    for(let i = 0; i<itemsUpdate.length; i++) {
-      if(itemsUpdate[i].id == this.underEdit) {
-        itemsUpdate[i].text = this.editModalText.value;
+    const current_user = this.props.current_user;
+    const partner = this.props.params.uid;
+    const my_partners = this.props.my_partners[current_user];
+    const prevTodoList = my_partners[partner].todo.slice();
+    const prevIdCounter = my_partners[partner].idCounter;
+
+    for(let i = 0; i<prevTodoList.length; i++) {
+      if(prevTodoList[i].id == this.underEdit) {
+        const firstHalf = prevTodoList.slice(0,i);
+        const newItem = {id: parseInt(this.underEdit), text: this.editModalText.value};
+        const secondHalf = prevTodoList.slice(i+1);
+        const newTodoList = [...firstHalf, newItem, ...secondHalf];
+        const toDoLoad = {
+          current_user: current_user,
+          partner: partner,
+          idCounter: prevIdCounter,
+          list: newTodoList
+        }
+        this.props.addToDoItem(toDoLoad);
         break;
       }
     }
-    this.setState((prevState) => { return {items: itemsUpdate}; });
+
     this.editModal.style.display = "none";
   }
 
   deleteToDoItem = () => {
-    let itemsUpdate = this.state.items;
-    for(let i = 0; i<itemsUpdate.length; i++) {
-      if(itemsUpdate[i].id == this.underEdit) {
-        itemsUpdate.splice(i, 1);
+    const current_user = this.props.current_user;
+    const partner = this.props.params.uid;
+    const my_partners = this.props.my_partners[current_user];
+    const prevTodoList = my_partners[partner].todo.slice();
+    const prevIdCounter = my_partners[partner].idCounter;
+
+    for(let i = 0; i< prevTodoList.length; i++) {
+      if(prevTodoList[i].id == this.underEdit) {
+        prevTodoList.splice(i,1);
+        const toDoLoad = {
+          current_user: current_user,
+          partner: partner,
+          idCounter: prevIdCounter,
+          list: prevTodoList
+        }
+        this.props.addToDoItem(toDoLoad);
         break;
       }
     }
-    this.setState((prevState) => { return {items: itemsUpdate}; });
+
     this.editModal.style.display = "none";
   }
 
