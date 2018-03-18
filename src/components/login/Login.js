@@ -1,13 +1,17 @@
 import React from 'react';
 import {Link,browserHistory} from 'react-router';
 import '../../styles/login.css';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import {loadUsers, getCurrentUser} from '../../actions/usersActions';
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = { email: '',
                    password: '',
-                   show: 'hidden'};
+                   show: 'hidden',
+                   allUsers: ''};
 
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
@@ -24,6 +28,29 @@ class Login extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+
+    console.log (this.state.allUsers);
+    for(var people in this.state.allUsers)
+    {
+      console.log(people);
+      console.log(this.state.allUsers[people].email);
+      console.log(this.state.allUsers[people].password);
+
+      if(this.state.email == (this.state.allUsers[people].email)
+       && this.state.password ==  (this.state.allUsers[people].password)){        
+        //alert(localStorage.getItem("current_user"));
+        //localStorage.setItem("current_user", "rosa_melano");
+        localStorage.setItem("current_user", "tacos_el_gordo");
+        browserHistory.push('/my_account');      
+      }
+    }
+    
+    //no matching login
+    this.setState((prevState) => {
+      return { show: 'visible' }
+    });
+
+    /*
     if(this.state.email == "a@a.com" && this.state.password == "123"){
       //alert(localStorage.getItem("current_user"));
       //localStorage.setItem("current_user", "rosa_melano");
@@ -35,10 +62,34 @@ class Login extends React.Component {
       this.setState((prevState) => {
         return { show: 'visible' }
       });
+    }*/
+  }
+
+  componentWillMount() {
+
+    if(typeof this.props.users != 'undefined')
+    {
+      this.state.allUsers = this.props.users;
+      this.setState({allUsers: this.props.users});
+      console.log("moun");
+      console.log( this.props.users);
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+      if(typeof nextProps.users != 'undefined')
+      {
+        this.state.allUsers = nextProps.users;
+        this.setState({allUsers: nextProps.users});
+        console.log("recie");
+        console.log(nextProps.users);
+      }
+  }
+
   render() {
+
+    const current_user = this.props.users;
+
     return (   
       <div>               
         <img src={require("../../img/login/blurflower.jpg")} className="bg"></img>
@@ -70,4 +121,12 @@ class Login extends React.Component {
   }
 }  
 
-export default Login;
+
+function mapStateToProps(state) {
+  return {
+    users: state.users,
+  }; 
+}
+
+export default connect(mapStateToProps)(Login); 
+//export default Login;
