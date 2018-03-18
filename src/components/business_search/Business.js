@@ -19,15 +19,15 @@ class Business extends React.Component{
         for(let i = 0; i < business.length; i++) {
             let bus = users[business[i].uid];
             let uid = bus.uid;
-            console.log("business id " + bus.uid);
+            //console.log("business id " + bus.uid);
             let profile_pic = bus.profile_pic;
             let name = bus.fname ;
-            console.log(bus.fname);
+            //console.log(bus.fname);
             let number = bus.phone_number;
             let email = bus.email;
-            let lol = bus.category.toLowerCase().indexOf(filteredBus);
+            let lol = bus.category.indexOf(filteredBus);
             if(lol !== -1){
-            console.log("Hello " + bus.profile_pic);
+            //console.log("Hello " + bus.profile_pic);
            business_list.push(<BusContact business={bus} img={profile_pic} uid={uid} num={number} email = {email}>{name}</BusContact>);
             }
         }

@@ -14,10 +14,11 @@ const BusContact = (props) => {
   //const user = props.business;
   //console.log("business " +props.img);
   const linkTo = "business_ad/"+props.uid;
+  const img = "../"+props.img
     return(
             <div className="client">
                 <h3>{props.children}</h3>
-                <img src={props.img} className="client-picture"/>
+                <img src={img} className="client-picture"/>
                 <p id = "request-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel imperdiet lorem. 
                     Donec consequat quam quis ante mattis tincidunt. Curabitur eros nunc, condimentum sed leo 
                     elementum, placerat venenatis ipsum. Phasellus nulla velit, venenatis eget lorem id, cursus 

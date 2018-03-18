@@ -136,7 +136,7 @@ const requests = {
     fairbanks: []
 };
 
-const current_user = { current_user: "tacos_el_gordo" };
+const current_user = { current_user: "rosa_melano" };
 
 const businesses = ["tacos_el_gordo","banda_ms", "fairbanks"];
 

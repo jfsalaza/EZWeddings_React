@@ -16,22 +16,16 @@ class BusinessSearch extends React.Component {
       this.setState({search: event.target.value});
     }
     render() {
-
+      let sentParameter = this.props.params.type;
+      console.log(sentParameter);
       return (
       <div>
         <div className="title">
           <img id="title-img" src="../cogs.jpeg" alt="wedding"/>
           <div className="title-centered"><h1>Vendor Search</h1></div>
         </div>
-
-        <div id = "searchBar" style = {{alignContent:'center'}}>
-          <input className = "SearchBar" style = {{width: '800px', textAlign:'center'}} id="searchidBS" type="text" placeholder="Search..." 
-          value={this.state.search}
-          onChange = {this.updateSearch.bind(this)} />
-        </div>
-
         <div id="sresultidBS">
-            <Business category = {this.state.search}/>
+            <Business category = {sentParameter}/>
         </div>
       </div>
       );
