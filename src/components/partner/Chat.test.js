@@ -5,7 +5,7 @@ import TestUtils from 'react-addons-test-utils';
 import Chat from './Chat2';
 
 describe('Chat test', () => {
-
+/*
     it("send message when enter button is pressed", () => {
         const wrapper2 = mount(<Chat/>);
 
@@ -31,4 +31,5 @@ describe('Chat test', () => {
         const message2 = wrapper.find("div").at(3).text();
         expect(message2).toEqual("You:  Hello");
     });
+*/
 });
