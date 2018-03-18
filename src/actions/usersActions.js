@@ -32,3 +32,32 @@ export function getCurrentUser() {
     };
 }
 
+export function loadPlannerToDoSuccess(planner_todo){
+    return {type: types.LOAD_PLANNER_TODO_SUCCESS, planner_todo};
+}
+
+export function loadPlannerToDo() {
+    return dispatch => {
+        dispatch(beginAjaxCall());
+        return UsersApi.getPlannerToDo().then(planner_todo => {
+            dispatch(loadPlannerToDoSuccess(planner_todo));
+        }).catch(error => {
+            throw(error);
+        });
+    };
+}
+
+export function addToDoItemSuccess(newCurrentUser) {
+    return {type: types.ADD_PLANNER_TODO_ITEM_SUCCESS, newCurrentUser};
+}
+
+export function addToDoItem(todoLoad) {
+    return dispatch => {
+        dispatch(beginAjaxCall());
+        return UsersApi.addToDo(todoLoad).then(newCurrentUser => {
+            dispatch(addToDoItemSuccess(newCurrentUser));
+        }).catch(error => {
+            throw(error);
+        })
+    };
+}

@@ -80,7 +80,26 @@ const users = {
 
 };
 
-const current_user = { current_user: "tacos_el_gordo" };
+const planner_todo = {
+    rosa_melano: {
+        todo: [],
+        idCounter: 0
+    },
+    elver_galarga: {
+        todo: [],
+        idCounter: 0
+    },
+    john_smith: {
+        todo: [],
+        idCounter: 0
+    },
+    jane_doe: {
+        todo: [],
+        idCounter: 0
+    }
+};
+
+const current_user = { current_user: "rosa_melano" };
 
 const businesses = ["tacos_el_gordo","banda_ms", "fairbanks"];
 
@@ -93,10 +112,35 @@ class UsersApi {
         });
     }
 
+    static getPlannerToDo(){
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(Object.assign({}, planner_todo));
+            }, delay);
+        });
+    }
+
     static getCurrentUser() {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve(Object.assign({}, current_user));
+            }, delay);
+        });
+    }
+
+    static addToDo(todoLoad) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const current_user = Object.assign({}, planner_todo[todoLoad.current_user]);
+                const idCounter = todoLoad.idCounter;
+                const todoList = todoLoad.list;
+                current_user["todo"] = todoList; 
+                current_user["idCounter"] = idCounter;
+                planner_todo[todoLoad.current_user] = current_user;
+
+                let newCurrentUser = {};
+                newCurrentUser[todoLoad.current_user] = current_user;
+                resolve(newCurrentUser);
             }, delay);
         });
     }

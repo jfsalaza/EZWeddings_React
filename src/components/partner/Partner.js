@@ -6,7 +6,6 @@ import AddModal from './AddModal';
 import EditModal from './EditModal';
 import Title from '../common/Title';
 import {connect} from 'react-redux';
-import {users, current_user} from '../common/Header';
 import {bindActionCreators} from 'redux';
 import {loadUsers, getCurrentUser} from '../../actions/usersActions';
 import {sendMessage, addToDoItem} from '../../actions/myPartnersActions';
@@ -120,13 +119,16 @@ class Partner extends React.Component {
   }
 
   render() {
-    const partner = users[this.props.params.uid];
-    const name = partner.contact_info.name;
+    const partner = this.props.users[this.props.params.uid];
+    const account_type = this.props.users[this.props.current_user].account_type;
+    let name = partner.fname;
+    if(account_type == "business") {
+      name += " "+partner.lname;
+    }
     const profile_pic = "../"+partner.profile_pic;
-    const phone_number = partner.contact_info.phone_number;
-    const email = partner.contact_info.email;
-    const address = partner.contact_info.address;
-    const account_type = users[current_user].account_type;
+    const phone_number = partner.phone_number;
+    const email = partner.email;
+    const address = partner.address;
     const todo = this.props.my_partners[this.props.current_user][this.props.params.uid].todo;
 
     let bg_pic = "../title_bg.jpeg";
