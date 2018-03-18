@@ -11,16 +11,22 @@ class Chat extends React.Component {
     sendMessage = (e) => {
         const current_user = this.props.current_user.slice(0);
         const partner = this.props.puid;
+        const account_type = this.props.users[current_user].account_type;
         if(e.keyCode == 13) {
             let text = this.textInput.value; 
             const current_user = this.props.current_user;
             const partner = this.props.puid;
             let chat = this.props.my_partners[partner].chat.slice(0);
-            chat.push(text);
+            let sender = this.props.users[current_user].fname;
+            if(account_type == "planner") {
+                sender += " "+this.props.users[current_user].lname;
+            }
+            let msg = {sender: sender, msg: text};
+            chat.push(msg);
             const message = {from: current_user, to: partner, chat: chat}
             this.props.sendMessage(message);
             this.textInput.value = "";
-
+            console.log(this.props.all_partners);
         }
     }
 
@@ -33,8 +39,9 @@ class Chat extends React.Component {
                 <div id="chat-box">
                     {   
                         chat.map((message) => {
-                            const sender = this.props.current_user.slice(0);
-                            return <Message sender={sender+": "} message={message}></Message>
+                            const sender = message.sender;
+                            const msg = message.msg;
+                            return <Message sender={sender+": "} message={msg}></Message>
                         })
                     }
                 </div>

@@ -19,6 +19,7 @@ class Partner extends React.Component {
   underEdit = null;
 
   showAddModal = () => {
+    console.log(this.props.my_partners);
     this.modal.style.display = "block";
   }
   

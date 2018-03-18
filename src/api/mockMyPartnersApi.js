@@ -145,13 +145,20 @@ class MyPartnersApi {
                 const chat = message.chat;
                 const sender = Object.assign({}, my_partners[from]);
                 const newPartner = {chat: chat, todo: sender[to].todo, idCounter: sender[to].idCounter};
-                
+                ////
+                const receiver = Object.assign({}, my_partners[to]);
+                const newReceiverSide = {chat: chat, todo: receiver[from].todo, idCounter: receiver[from].idCounter};
+                receiver[from] = newReceiverSide;
+                my_partners[to] = receiver;
+                let newReceiver = {};
+                newReceiver[to] = receiver;
+                ////
                 sender[to] = newPartner;
                 my_partners[from] = sender;
                 
                 let newSender = {};
                 newSender[from] = sender;
-                resolve(newSender);
+                resolve([newSender, newReceiver]);
             }, delay);
         });
     }
@@ -164,11 +171,18 @@ class MyPartnersApi {
                 const idCounter = todoLoad.idCounter;
                 const todoList = todoLoad.list;
                 current_user[partner] = {chat: current_user[partner].chat, todo: todoList, idCounter: idCounter};
+                ////
+                const partnerSide = Object.assign({}, my_partners[todoLoad.partner]);
+                partnerSide[todoLoad.current_user] = {chat: current_user[partner].chat, todo: todoList, idCounter: idCounter};
+                my_partners[todoLoad.partner] = partnerSide;
+                let newPartnerSide = {};
+                newPartnerSide[todoLoad.partner] = partnerSide;
+                ////
                 my_partners[todoLoad.current_user] = current_user;
 
                 let newCurrentUser = {};
                 newCurrentUser[todoLoad.current_user] = current_user;
-                resolve(newCurrentUser);
+                resolve([newCurrentUser, newPartnerSide]);
             }, delay);
         });
     }
