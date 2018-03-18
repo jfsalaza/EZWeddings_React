@@ -207,6 +207,19 @@ class UsersApi {
             }, delay);
         });
     };
+
+    static updateFreshUser(freshUser) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const current_users = Object.assign({}, users);
+                 
+                users[freshUser.id] = freshUser;                
+                console.log(users[freshUser.id]);
+
+                resolve(users);
+            }, delay);
+        });
+    }
 }
 
 export default UsersApi;
