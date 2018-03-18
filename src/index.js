@@ -8,7 +8,7 @@ import { Router, browserHistory } from 'react-router';
 import routes from './routes';
 import {loadCourses} from './actions/courseActions';
 import {loadAuthors} from './actions/authorActions';
-import {loadUsers, getCurrentUser, loadPlannerToDo} from './actions/usersActions';
+import {loadUsers, getCurrentUser, loadPlannerToDo, loadRequests} from './actions/usersActions';
 import {loadMyPartners} from './actions/myPartnersActions';
 
 
@@ -19,6 +19,7 @@ store.dispatch(loadUsers());
 store.dispatch(getCurrentUser());
 store.dispatch(loadMyPartners());
 store.dispatch(loadPlannerToDo());
+store.dispatch(loadRequests());
 
 export const users = {
   rosa_melano: {

@@ -7,6 +7,7 @@ import current_user from './currentUserReducer';
 import my_partners from './myPartnersReducer';
 import ajaxCallsInProgress from './ajaxStatusReducer';
 import business from './business-reducers';
+import requests from './requestsReducer';
 import business_ad from './ads-reducer';
 
 const rootReducer = combineReducers({
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   planner_todo,
   current_user,
   my_partners,
+  requests,
   courses,
   authors,
   ajaxCallsInProgress,

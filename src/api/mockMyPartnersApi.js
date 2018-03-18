@@ -19,11 +19,6 @@ const my_partners = {
             todo: [],
             idCounter: 0
         },
-        tacos_el_gordo: {
-            chat: [],
-            todo: [],
-            idCounter: 0
-        },
         banda_ms: {
             chat: [],
             todo: [],
@@ -32,11 +27,6 @@ const my_partners = {
     },
     john_smith: {
         fairbanks: {
-            chat: [],
-            todo: [],
-            idCounter: 0
-        },
-        tacos_el_gordo: {
             chat: [],
             todo: [],
             idCounter: 0
@@ -88,16 +78,6 @@ const my_partners = {
     },
     tacos_el_gordo: {
         rosa_melano: {
-            chat: [],
-            todo: [],
-            idCounter: 0
-        },
-        elver_galarga: {
-            chat: [],
-            todo: [],
-            idCounter: 0
-        },
-        john_smith: {
             chat: [],
             todo: [],
             idCounter: 0

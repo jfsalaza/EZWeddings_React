@@ -99,6 +99,21 @@ const planner_todo = {
     }
 };
 
+const requests = {
+    tacos_el_gordo: [
+        {
+            uid: "elver_galarga",
+            msg: "Hello I'm looking for a food vendor for my wedding, think you can help?"
+        },
+        {
+            uid: "john_smith",
+            msg: "your tacos suck"
+        }
+    ],
+    banda_ms: [],
+    fairbanks: []
+};
+
 const current_user = { current_user: "tacos_el_gordo" };
 
 const businesses = ["tacos_el_gordo","banda_ms", "fairbanks"];
@@ -108,6 +123,14 @@ class UsersApi {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve(Object.assign({}, users));
+            }, delay);
+        });
+    }
+
+    static getRequests(){
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(Object.assign({}, requests));
             }, delay);
         });
     }
@@ -144,6 +167,17 @@ class UsersApi {
             }, delay);
         });
     }
+
+    static handleRequest(requestLoad){
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                requests[requestLoad.current_user] = requestLoad.requests;
+                let newCurrentUser = {};
+                newCurrentUser[requestLoad.current_user] = requests[requestLoad.current_user];
+                resolve(newCurrentUser);
+            }, delay);
+        });
+    };
 }
 
 export default UsersApi;

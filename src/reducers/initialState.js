@@ -5,5 +5,6 @@ export default {
   planner_todo: {},
   authors: [],
   courses: [],
+  requests: [],
   ajaxCallsInProgress: 0
 };

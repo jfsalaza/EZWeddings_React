@@ -47,6 +47,7 @@ export function loadPlannerToDo() {
     };
 }
 
+
 export function addToDoItemSuccess(newCurrentUser) {
     return {type: types.ADD_PLANNER_TODO_ITEM_SUCCESS, newCurrentUser};
 }
@@ -59,5 +60,35 @@ export function addToDoItem(todoLoad) {
         }).catch(error => {
             throw(error);
         })
+    };
+}
+
+export function loadRequestsSuccess(requests) {
+    return {type: types.LOAD_REQUESTS_SUCCESS, requests};
+}
+
+export function loadRequests() {
+    return dispatch => {
+        dispatch(beginAjaxCall());
+        return UsersApi.getRequests().then(requests => {
+            dispatch(loadRequestsSuccess(requests));
+        }).catch(error => {
+            throw(error);
+        });
+    };
+}
+
+export function handleRequestSuccess(newCurrentUser) {
+    return {type: types.HANDLE_REQUEST_SUCCESS, newCurrentUser}
+}
+
+export function handleRequest(requestLoad) {
+    return dispatch => {
+        dispatch(beginAjaxCall());
+        return UsersApi.handleRequest(requestLoad).then(newCurrentUser => {
+            dispatch(handleRequestSuccess(newCurrentUser));
+        }).catch(error => {
+            throw(error);
+        });
     };
 }
