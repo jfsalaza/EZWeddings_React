@@ -101,7 +101,7 @@ const users = {
 //     }
 // }
 
-const current_user = { current_user: "rosa_melanno" };
+
 const planner_todo = {
     rosa_melano: {
         todo: [],
