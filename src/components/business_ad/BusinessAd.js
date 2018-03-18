@@ -8,27 +8,27 @@ import {getBusinessAd} from '../../actions/usersActions'
 
 
 class BusinessAd extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { title: users["tacos_el_gordo2"].ad.title,
-                   name: users["tacos_el_gordo2"].ad.name,
-                   ad_pic: users["tacos_el_gordo2"].ad.ad_pic,
-                   description: users["tacos_el_gordo2"].ad.description,
-                   email: users["tacos_el_gordo2"].ad.email,
-                   phone_number: users["tacos_el_gordo2"].ad.phone_number,
-                   checkV: users["tacos_el_gordo2"].ad.checkV,
-                   checkO: users["tacos_el_gordo2"].ad.checkO,
-                   checkDC: users["tacos_el_gordo2"].ad.checkDC,
-                   checkFD: users["tacos_el_gordo2"].ad.checkFD,
-                   checkC: users["tacos_el_gordo2"].ad.checkC,
-                   checkR: users["tacos_el_gordo2"].ad.checkR,
-                   checkT: users["tacos_el_gordo2"].ad.checkT,
-                   checkE: users["tacos_el_gordo2"].ad.checkE,
-                   checkCL: users["tacos_el_gordo2"].ad.checkCL,
-                   checkHM: users["tacos_el_gordo2"].ad.checkHM,
-                   checkPV: users["tacos_el_gordo2"].ad.checkPV,
-                   categories: users["tacos_el_gordo2"].ad.categories
-                };}
+constructor(props) {
+  super(props);
+  this.state = { title: users["tacos_el_gordo2"].ad.title,
+                  name: users["tacos_el_gordo2"].ad.name,
+                  ad_pic: users["tacos_el_gordo2"].ad.ad_pic,
+                  description: users["tacos_el_gordo2"].ad.description,
+                  email: users["tacos_el_gordo2"].ad.email,
+                  phone_number: users["tacos_el_gordo2"].ad.phone_number,
+                  checkV: users["tacos_el_gordo2"].ad.checkV,
+                  checkO: users["tacos_el_gordo2"].ad.checkO,
+                  checkDC: users["tacos_el_gordo2"].ad.checkDC,
+                  checkFD: users["tacos_el_gordo2"].ad.checkFD,
+                  checkC: users["tacos_el_gordo2"].ad.checkC,
+                  checkR: users["tacos_el_gordo2"].ad.checkR,
+                  checkT: users["tacos_el_gordo2"].ad.checkT,
+                  checkE: users["tacos_el_gordo2"].ad.checkE,
+                  checkCL: users["tacos_el_gordo2"].ad.checkCL,
+                  checkHM: users["tacos_el_gordo2"].ad.checkHM,
+                  checkPV: users["tacos_el_gordo2"].ad.checkPV,
+                  categories: users["tacos_el_gordo2"].ad.categories
+              };}
 
     makeString(){
       let displayS = '';

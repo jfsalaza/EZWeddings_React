@@ -17,18 +17,15 @@ export function loadMyPartners() {
     };
 }
 
-export function sendMessageSuccess(message) {
-    return {type: types.SEND_MESSAGE_SUCCESS, message};
+export function sendMessageSuccess(updatedPartner) {
+    return {type: types.SEND_MESSAGE_SUCCESS, updatedPartner};
 }
 
 export function sendMessage(message){
-    console.log(message);
     return dispatch => {
         dispatch(beginAjaxCall());
-        return MyPartnersApi.sendMessage(message).then(message => {
-            console.log("In action");
-            console.log(message);
-            dispatch(sendMessageSuccess(message));
+        return MyPartnersApi.sendMessage(message).then(updatedPartner => {
+            dispatch(sendMessageSuccess(updatedPartner));
         }).catch(error => {
             throw(error);
         });
@@ -36,4 +33,22 @@ export function sendMessage(message){
 }
 
 
+export function addToDoItemSuccess(newCurrentUser) {
+    return {type: types.ADD_TODO_ITEM_SUCCESS, newCurrentUser};
+}
+
+export function addToDoItem(todoLoad) {
+    return dispatch => {
+        dispatch(beginAjaxCall());
+        return MyPartnersApi.addToDo(todoLoad).then(newCurrentUser => {
+            dispatch(addToDoItemSuccess(newCurrentUser));
+        }).catch(error => {
+            throw(error);
+        })
+    };
+}
+
+export function editToDoItem(todoLoad) {
+    
+}
 

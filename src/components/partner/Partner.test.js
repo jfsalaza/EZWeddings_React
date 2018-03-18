@@ -5,6 +5,7 @@ import TestUtils from 'react-addons-test-utils';
 import Partner from './Partner';
 
 describe('Todo list test', () => {
+    /*
     const props = {
         params: {uid: "elver_galarga"}
     };
@@ -103,5 +104,5 @@ describe('Todo list test', () => {
     expect(updated_list.length).toEqual(2);
     expect(updated_list.at(1).text()).toEqual("item3");
    });
-
+*/
 });

@@ -28,7 +28,10 @@ class MyPartners extends React.Component {
         let partner = users[partners[i]];
         let uid = partner.uid;
         let profile_pic = partner.profile_pic;
-        let name = partner.fname+" "+partner.lname;
+        let name = partner.fname;
+        if(account_type == "business") {
+          name += " " + partner.lname;
+        }
         partners_list.push(<User img={profile_pic} uid={uid}>{name}</User>);
       }
 

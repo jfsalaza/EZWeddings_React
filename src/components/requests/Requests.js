@@ -1,42 +1,70 @@
 import React, {Component}from 'react';
 import ReqUsers from './ReqUsers';
 import '../../styles/request.css';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {handleRequest} from '../../actions/usersActions';
+
 
 let namesClicked = [];
 class Requests extends React.Component {
-  state = {
-    requests: [ "elver_galarga", "rosa_melano"
-    ]
-  };
-
   removeFromList = (e) => {
     const id = e.currentTarget.id;
-    this.setState((prevState) => 
-    {
-            var next = prevState.requests.slice();
-            let index = next.indexOf(id);
-            next.splice(index,1);
-            return {requests: next};
-    });
+    const accept = e.currentTarget.className == "accept-button";
+    ////
+    const requests = this.props.requests[this.props.current_user].slice(0);
+    for(let i = 0; i < requests.length; i++) {
+      if(requests[i].uid == id) {
+        requests.splice(i, 1);
+        const requestLoad = {
+          current_user: this.props.current_user,
+          requests: requests
+        }
+        this.props.handleRequest(requestLoad)
+        if(accept) {
+          console.log("ADD TO PARTNERS");
+        }
+        break;
+      }
+    }
+    ////
   }
     render() { 
-      
-      const users = JSON.parse(localStorage.getItem("users"));
+      const requests = this.props.requests[this.props.current_user];
+      const users = this.props.users;
       const names = JSON.parse(localStorage.getItem("names"));
       return (
         <div id="client-info" style={{textAlign: "center"}}>
           {
-            this.state.requests.map((request) => {
-              let user = users[request];
+              requests.map((request) => {
+              let user = users[request.uid];
+              let name = user.fname+" "+user.lname;
               return <ReqUsers img={user.profile_pic} uid={user.uid} 
-              remove={this.removeFromList} email={user.contact_info.email}
-              num={user.contact_info.phone_number}
-              >{user.contact_info.name}</ReqUsers>
+              remove={this.removeFromList} email={user.email}
+              name={name}
+              num={user.phone_number}
+              >{request.msg}</ReqUsers>
             }) 
           }
         </div>
       );
     }
   }
-  
-  export default Requests;
+
+  function mapStateToProps(state) {
+    return {
+      users: state.users,
+      requests: state.requests,
+      current_user: state.current_user.current_user,
+      my_partners: state.my_partners[state.current_user.current_user]
+    };
+  }
+
+
+  function matchDispatchToProps(dispatch) {
+    return bindActionCreators({
+      handleRequest: handleRequest
+    }, dispatch)
+  }
+
+  export default connect(mapStateToProps, matchDispatchToProps)(Requests);

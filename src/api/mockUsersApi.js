@@ -102,6 +102,41 @@ const users = {
 // }
 
 const current_user = { current_user: "rosa_melanno" };
+const planner_todo = {
+    rosa_melano: {
+        todo: [],
+        idCounter: 0
+    },
+    elver_galarga: {
+        todo: [],
+        idCounter: 0
+    },
+    john_smith: {
+        todo: [],
+        idCounter: 0
+    },
+    jane_doe: {
+        todo: [],
+        idCounter: 0
+    }
+};
+
+const requests = {
+    tacos_el_gordo: [
+        {
+            uid: "elver_galarga",
+            msg: "Hello I'm looking for a food vendor for my wedding, think you can help?"
+        },
+        {
+            uid: "john_smith",
+            msg: "your tacos suck"
+        }
+    ],
+    banda_ms: [],
+    fairbanks: []
+};
+
+const current_user = { current_user: "tacos_el_gordo" };
 
 const businesses = ["tacos_el_gordo","banda_ms", "fairbanks"];
 
@@ -110,6 +145,22 @@ class UsersApi {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve(Object.assign({}, users));
+            }, delay);
+        });
+    }
+
+    static getRequests(){
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(Object.assign({}, requests));
+            }, delay);
+        });
+    }
+
+    static getPlannerToDo(){
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(Object.assign({}, planner_todo));
             }, delay);
         });
     }
@@ -129,6 +180,33 @@ class UsersApi {
             }, delay);
         });
     }
+    static addToDo(todoLoad) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const current_user = Object.assign({}, planner_todo[todoLoad.current_user]);
+                const idCounter = todoLoad.idCounter;
+                const todoList = todoLoad.list;
+                current_user["todo"] = todoList; 
+                current_user["idCounter"] = idCounter;
+                planner_todo[todoLoad.current_user] = current_user;
+
+                let newCurrentUser = {};
+                newCurrentUser[todoLoad.current_user] = current_user;
+                resolve(newCurrentUser);
+            }, delay);
+        });
+    }
+
+    static handleRequest(requestLoad){
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                requests[requestLoad.current_user] = requestLoad.requests;
+                let newCurrentUser = {};
+                newCurrentUser[requestLoad.current_user] = requests[requestLoad.current_user];
+                resolve(newCurrentUser);
+            }, delay);
+        });
+    };
 }
 
 export default UsersApi;

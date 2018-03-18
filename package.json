@@ -30,6 +30,7 @@
     "react-router-redux": "4.0.4",
     "redux": "3.5.2",
     "redux-thunk": "2.0.1",
+    "set-default-browser": "^1.0.1",
     "toastr": "2.1.2"
   },
   "devDependencies": {
@@ -45,7 +46,7 @@
     "colors": "1.1.2",
     "compression": "^1.6.1",
     "cross-env": "1.0.7",
-    "css-loader": "0.23.1",
+    "css-loader": "^0.23.1",
     "enzyme": "2.2.0",
     "eslint": "2.9.0",
     "eslint-plugin-import": "1.6.1",
