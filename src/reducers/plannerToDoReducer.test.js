@@ -16,7 +16,7 @@ describe('Planner Reducer', () => {
         const toDoLoad = {
             user1: {
                 todo: [{id: 0, text: "A"}],
-                idCounter: 1
+                idCounter: 1,
             }
         };
 
@@ -39,7 +39,7 @@ describe('Planner Reducer', () => {
         const toDoLoad = {
             user1: {
                 todo: [{id: 0, text: "B"}],
-                idCounter: 1
+                idCounter: 1,
             }
         };
 
@@ -62,7 +62,7 @@ describe('Planner Reducer', () => {
         const toDoLoad = {
             user1: {
                 todo: [{id: 1, text: "B"}],
-                idCounter: 2
+                idCounter: 2,
             }
         };
 
