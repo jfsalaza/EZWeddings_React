@@ -22,6 +22,7 @@ class Business extends React.Component{
             console.log("business id " + bus.uid);
             let profile_pic = bus.profile_pic;
             let name = bus.fname ;
+            console.log(bus.fname);
             let number = bus.phone_number;
             let email = bus.email;
             let lol = bus.category.toLowerCase().indexOf(filteredBus);

@@ -83,7 +83,25 @@ const users = {
 
 };
 
-const current_user = { current_user: "tacos_el_gordo" };
+// const businessAds = {
+//     tacos_el_gordo: {
+//         ad: {
+//             thisAd: "hello"
+//         }
+//     },
+//     fairbanks: {
+//         ad: {
+//             thisAd:"hello 2"
+//         }
+//     },
+//     banda_ms: {
+//         ad: {
+//             thisAd: "Hello 3"
+//         }
+//     }
+// }
+
+const current_user = { current_user: "rosa_melanno" };
 
 const businesses = ["tacos_el_gordo","banda_ms", "fairbanks"];
 
@@ -100,6 +118,14 @@ class UsersApi {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve(Object.assign({}, current_user));
+            }, delay);
+        });
+    }
+
+    static getBusinessAd(){
+        return new Promise((resolve, reject) =>{
+            setTimeout(()=>{
+                resolve(Object.assign({}, businessAds));
             }, delay);
         });
     }

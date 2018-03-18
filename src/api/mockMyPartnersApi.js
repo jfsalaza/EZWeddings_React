@@ -143,6 +143,14 @@ class MyPartnersApi {
             }, delay);
         });
     }
+
+    // static addPartner(){
+    //     return new Promise((resolve, reject) => {
+    //         setTimeout(() =>{
+                
+    //         }, delay);
+    //     });
+    // }
 }
 
 export default MyPartnersApi;

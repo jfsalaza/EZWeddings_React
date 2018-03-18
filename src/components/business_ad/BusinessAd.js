@@ -3,6 +3,8 @@ import {Link} from 'react-router';
 import {users, current_user} from '../../index';
 import '../../styles/business_ad.css';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {getBusinessAd} from '../../actions/usersActions'
 
 
 class BusinessAd extends React.Component {
@@ -70,25 +72,33 @@ class BusinessAd extends React.Component {
     }    
 
     render() {
+      let bus = this.props.params.uid;
+       let users = this.props.users;
+       let bus12 = users[bus];
+       let uid = bus12.uid;
+       let profile_pic = bus12.profile_pic;
+       let name = bus12.fname ;
+       let number = bus12.phone_number;
+       let email = bus12.email;
       return (
         <div id="pagedivIdBA">                
           <div id="listingIdBA">          
-            <img src={require('../../img/business/'+users["tacos_el_gordo2"].ad.ad_pic)} width="600px" height="400px"></img>
+            <img src={require('../../img/business/'+profile_pic)} width="600px" height="400px"></img>
           </div>  
           
           <div id="listingInfoIdBA">
-            <h1 id="nameIdBA">{this.props.business_ad.fname}</h1>
-            <h3 id="cnameIdBA">{this.state.title}</h3>
+            <h1 id="nameIdBA">{name}</h1>
+            {/* <h3 id="cnameIdBA">{this.state.title}</h3> */}
             <hr id="hrIdBA"></hr>
 
             <br></br>
             <p>Contact: </p>
-            <p id="pnumberIdBA">Phone Number: {this.props.business_ad.phone_number}</p>
-            <p id="emailIdBA">Email: {this.state.email}</p>
+            <p id="pnumberIdBA">Phone Number: {number}</p>
+            <p id="emailIdBA">Email: {email}</p>
             
             <br></br>
             <p id="descpIdBA">Description: </p>
-            <p id="descIdBA" >{this.state.description}</p>            
+            {/* <p id="descIdBA" >{this.state.description}</p>             */}
           </div>
           
           <div id="catdivIdBA">
@@ -99,12 +109,15 @@ class BusinessAd extends React.Component {
       );
     }
   }
-  
   function mapStateToProps(state){
     return{
-     business_ad: state.business_ad
+      users: state.users
     }
   }
 
+  function matchDispatchToProps(dispatch) {
+      return bindActionCreators({getBusinessAd: getBusinessAd}, dispatch)
+  }
 
-  export default connect(mapStateToProps)(BusinessAd);
+
+  export default connect(mapStateToProps,matchDispatchToProps)(BusinessAd);

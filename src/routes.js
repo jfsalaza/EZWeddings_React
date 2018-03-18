@@ -31,7 +31,7 @@ export default (
     <Route path="register" component={Register} />
     <Route path="requests" component={Requests} />
     <Route path="update_ad" component={UpdateAd} />
-    <Route path="business_ad" component={BusinessAd} />    
+    <Route path="business_ad/:uid" component={BusinessAd} />    
     <Route path="account_recovery" component={AccountRecovery} />
 
   </Route>

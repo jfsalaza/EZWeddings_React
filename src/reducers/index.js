@@ -7,6 +7,8 @@ import my_partners from './myPartnersReducer';
 import ajaxCallsInProgress from './ajaxStatusReducer';
 import business from './business-reducers';
 import business_ad from './ads-reducer';
+import requestReducer from './requestReducer'
+import businessAdReducer from './businessAd-reducer'
 
 const rootReducer = combineReducers({
   users,
@@ -16,7 +18,9 @@ const rootReducer = combineReducers({
   authors,
   ajaxCallsInProgress,
   business,
-  business_ad
+  business_ad,
+  requestReducer,
+  businessAdReducer
 });
 
 export default rootReducer;
